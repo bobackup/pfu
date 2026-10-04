@@ -20,3 +20,12 @@ export const ORG = {
   },
   statutoUrl: "#", // replace with the uploaded Statuto PDF
 };
+
+// Supporting partners. Each entry: name, website, logo (CDN asset URL).
+// Add new partners here as logos arrive; remove a placeholder slot from
+// the home page "Con il sostegno di" grid when the list is full.
+import omegaLogo from "@/assets/omega-logistica.svg.asset.json";
+
+export const PARTNERS: { name: string; url: string; logo: string }[] = [
+  { name: "Omega Logistica", url: "https://www.omegalogistica.it", logo: omegaLogo.url },
+];
