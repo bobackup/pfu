@@ -8,3 +8,11 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture rules
+- Public pages live under `src/routes/$lang.*` (it, uk); UI strings in `src/i18n/*.ts` typed by `Dict` — add a locale by adding a dictionary and listing it in `LOCALES`.
+- Posts store per-language columns (`title_it`, `title_uk`, `title_en`…) read via `pickLocalized`, so new languages need no schema rewrite.
+- Public post reads go through server functions with a publishable client so pages render for SEO.
+- Editor access uses the `user_roles` table + `is_editor()`; the first signed-in user claims admin via `claim_first_admin()`.
+- The image bucket is private (public buckets are blocked by workspace policy), so uploads store long-lived signed URLs.
+- Organisation details (IBAN, codice fiscale, address) live in one file, `src/lib/site.ts`.
