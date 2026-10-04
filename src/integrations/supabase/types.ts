@@ -14,16 +14,156 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      posts: {
+        Row: {
+          body_en: string | null
+          body_it: string
+          body_uk: string
+          category: Database["public"]["Enums"]["post_category"]
+          cover_url: string | null
+          created_at: string
+          event_date: string | null
+          event_time: string | null
+          excerpt_en: string | null
+          excerpt_it: string
+          excerpt_uk: string
+          id: string
+          location: string | null
+          map_url: string | null
+          published: boolean
+          published_at: string
+          registration_url: string | null
+          slug: string
+          title_en: string | null
+          title_it: string
+          title_uk: string
+          updated_at: string
+        }
+        Insert: {
+          body_en?: string | null
+          body_it?: string
+          body_uk?: string
+          category?: Database["public"]["Enums"]["post_category"]
+          cover_url?: string | null
+          created_at?: string
+          event_date?: string | null
+          event_time?: string | null
+          excerpt_en?: string | null
+          excerpt_it?: string
+          excerpt_uk?: string
+          id?: string
+          location?: string | null
+          map_url?: string | null
+          published?: boolean
+          published_at?: string
+          registration_url?: string | null
+          slug: string
+          title_en?: string | null
+          title_it: string
+          title_uk?: string
+          updated_at?: string
+        }
+        Update: {
+          body_en?: string | null
+          body_it?: string
+          body_uk?: string
+          category?: Database["public"]["Enums"]["post_category"]
+          cover_url?: string | null
+          created_at?: string
+          event_date?: string | null
+          event_time?: string | null
+          excerpt_en?: string | null
+          excerpt_it?: string
+          excerpt_uk?: string
+          id?: string
+          location?: string | null
+          map_url?: string | null
+          published?: boolean
+          published_at?: string
+          registration_url?: string | null
+          slug?: string
+          title_en?: string | null
+          title_it?: string
+          title_uk?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      submissions: {
+        Row: {
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          kind: string
+          locale: string | null
+          message: string | null
+          name: string | null
+          phone: string | null
+        }
+        Insert: {
+          consent: boolean
+          created_at?: string
+          email: string
+          id?: string
+          kind: string
+          locale?: string | null
+          message?: string | null
+          name?: string | null
+          phone?: string | null
+        }
+        Update: {
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          kind?: string
+          locale?: string | null
+          message?: string | null
+          name?: string | null
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      claim_first_admin: { Args: never; Returns: boolean }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_editor: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "editor"
+      post_category: "news" | "event" | "report" | "press"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +290,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "editor"],
+      post_category: ["news", "event", "report", "press"],
+    },
   },
 } as const
