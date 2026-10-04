@@ -163,7 +163,7 @@ function Home() {
                 title={p.name}
                 className="grid h-16 place-items-center rounded-lg border bg-card px-4 shadow-card transition hover:-translate-y-0.5"
               >
-                <img src={p.logo} alt={p.name} className="h-9 w-auto max-w-full" />
+                <img src={p.logo} alt={p.name} className="h-11 w-auto max-w-full" />
               </a>
             ))}
             {Array.from({ length: Math.max(0, 5 - PARTNERS.length) }).map((_, i) => (
