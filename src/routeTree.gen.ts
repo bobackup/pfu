@@ -11,6 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangRouteImport } from './routes/$lang'
+import { Route as LangIndexRouteImport } from './routes/$lang.index'
+import { Route as LangAboutRouteImport } from './routes/$lang.about'
+import { Route as LangContactRouteImport } from './routes/$lang.contact'
+import { Route as LangCookiesRouteImport } from './routes/$lang.cookies'
+import { Route as LangDonateRouteImport } from './routes/$lang.donate'
+import { Route as LangGetInvolvedRouteImport } from './routes/$lang.get-involved'
+import { Route as LangPrivacyRouteImport } from './routes/$lang.privacy'
+import { Route as LangActivitiesIndexRouteImport } from './routes/$lang.activities.index'
+import { Route as LangActivitiesSlugRouteImport } from './routes/$lang.activities.$slug'
+import { Route as LangNewsIndexRouteImport } from './routes/$lang.news.index'
+import { Route as LangNewsSlugRouteImport } from './routes/$lang.news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +33,157 @@ const LangRoute = LangRouteImport.update({
   path: '/$lang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangAboutRoute = LangAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangContactRoute = LangContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangCookiesRoute = LangCookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangDonateRoute = LangDonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangGetInvolvedRoute = LangGetInvolvedRouteImport.update({
+  id: '/get-involved',
+  path: '/get-involved',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangPrivacyRoute = LangPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangActivitiesIndexRoute = LangActivitiesIndexRouteImport.update({
+  id: '/activities/',
+  path: '/activities/',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangActivitiesSlugRoute = LangActivitiesSlugRouteImport.update({
+  id: '/activities/$slug',
+  path: '/activities/$slug',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangNewsIndexRoute = LangNewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangNewsSlugRoute = LangNewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => LangRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$lang': typeof LangRoute
+  '/$lang': typeof LangRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/cookies': typeof LangCookiesRoute
+  '/$lang/donate': typeof LangDonateRoute
+  '/$lang/get-involved': typeof LangGetInvolvedRoute
+  '/$lang/privacy': typeof LangPrivacyRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/activities/$slug': typeof LangActivitiesSlugRoute
+  '/$lang/news/$slug': typeof LangNewsSlugRoute
+  '/$lang/activities/': typeof LangActivitiesIndexRoute
+  '/$lang/news/': typeof LangNewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/$lang': typeof LangRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/cookies': typeof LangCookiesRoute
+  '/$lang/donate': typeof LangDonateRoute
+  '/$lang/get-involved': typeof LangGetInvolvedRoute
+  '/$lang/privacy': typeof LangPrivacyRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/activities/$slug': typeof LangActivitiesSlugRoute
+  '/$lang/news/$slug': typeof LangNewsSlugRoute
+  '/$lang/activities': typeof LangActivitiesIndexRoute
+  '/$lang/news': typeof LangNewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/$lang': typeof LangRoute
+  '/$lang': typeof LangRouteWithChildren
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/contact': typeof LangContactRoute
+  '/$lang/cookies': typeof LangCookiesRoute
+  '/$lang/donate': typeof LangDonateRoute
+  '/$lang/get-involved': typeof LangGetInvolvedRoute
+  '/$lang/privacy': typeof LangPrivacyRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/activities/$slug': typeof LangActivitiesSlugRoute
+  '/$lang/news/$slug': typeof LangNewsSlugRoute
+  '/$lang/activities/': typeof LangActivitiesIndexRoute
+  '/$lang/news/': typeof LangNewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$lang'
+  fullPaths:
+    | '/'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/cookies'
+    | '/$lang/donate'
+    | '/$lang/get-involved'
+    | '/$lang/privacy'
+    | '/$lang/'
+    | '/$lang/activities/$slug'
+    | '/$lang/news/$slug'
+    | '/$lang/activities/'
+    | '/$lang/news/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$lang'
-  id: '__root__' | '/' | '/$lang'
+  to:
+    | '/'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/cookies'
+    | '/$lang/donate'
+    | '/$lang/get-involved'
+    | '/$lang/privacy'
+    | '/$lang'
+    | '/$lang/activities/$slug'
+    | '/$lang/news/$slug'
+    | '/$lang/activities'
+    | '/$lang/news'
+  id:
+    | '__root__'
+    | '/'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/contact'
+    | '/$lang/cookies'
+    | '/$lang/donate'
+    | '/$lang/get-involved'
+    | '/$lang/privacy'
+    | '/$lang/'
+    | '/$lang/activities/$slug'
+    | '/$lang/news/$slug'
+    | '/$lang/activities/'
+    | '/$lang/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LangRoute: typeof LangRoute
+  LangRoute: typeof LangRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +202,119 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
+      path: '/about'
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/contact': {
+      id: '/$lang/contact'
+      path: '/contact'
+      fullPath: '/$lang/contact'
+      preLoaderRoute: typeof LangContactRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/cookies': {
+      id: '/$lang/cookies'
+      path: '/cookies'
+      fullPath: '/$lang/cookies'
+      preLoaderRoute: typeof LangCookiesRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/donate': {
+      id: '/$lang/donate'
+      path: '/donate'
+      fullPath: '/$lang/donate'
+      preLoaderRoute: typeof LangDonateRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/get-involved': {
+      id: '/$lang/get-involved'
+      path: '/get-involved'
+      fullPath: '/$lang/get-involved'
+      preLoaderRoute: typeof LangGetInvolvedRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/privacy': {
+      id: '/$lang/privacy'
+      path: '/privacy'
+      fullPath: '/$lang/privacy'
+      preLoaderRoute: typeof LangPrivacyRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/activities/': {
+      id: '/$lang/activities/'
+      path: '/activities'
+      fullPath: '/$lang/activities/'
+      preLoaderRoute: typeof LangActivitiesIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/activities/$slug': {
+      id: '/$lang/activities/$slug'
+      path: '/activities/$slug'
+      fullPath: '/$lang/activities/$slug'
+      preLoaderRoute: typeof LangActivitiesSlugRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/news/': {
+      id: '/$lang/news/'
+      path: '/news'
+      fullPath: '/$lang/news/'
+      preLoaderRoute: typeof LangNewsIndexRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/news/$slug': {
+      id: '/$lang/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/$lang/news/$slug'
+      preLoaderRoute: typeof LangNewsSlugRouteImport
+      parentRoute: typeof LangRoute
+    }
   }
 }
 
+interface LangRouteChildren {
+  LangAboutRoute: typeof LangAboutRoute
+  LangContactRoute: typeof LangContactRoute
+  LangCookiesRoute: typeof LangCookiesRoute
+  LangDonateRoute: typeof LangDonateRoute
+  LangGetInvolvedRoute: typeof LangGetInvolvedRoute
+  LangPrivacyRoute: typeof LangPrivacyRoute
+  LangIndexRoute: typeof LangIndexRoute
+  LangActivitiesSlugRoute: typeof LangActivitiesSlugRoute
+  LangNewsSlugRoute: typeof LangNewsSlugRoute
+  LangActivitiesIndexRoute: typeof LangActivitiesIndexRoute
+  LangNewsIndexRoute: typeof LangNewsIndexRoute
+}
+
+const LangRouteChildren: LangRouteChildren = {
+  LangAboutRoute: LangAboutRoute,
+  LangContactRoute: LangContactRoute,
+  LangCookiesRoute: LangCookiesRoute,
+  LangDonateRoute: LangDonateRoute,
+  LangGetInvolvedRoute: LangGetInvolvedRoute,
+  LangPrivacyRoute: LangPrivacyRoute,
+  LangIndexRoute: LangIndexRoute,
+  LangActivitiesSlugRoute: LangActivitiesSlugRoute,
+  LangNewsSlugRoute: LangNewsSlugRoute,
+  LangActivitiesIndexRoute: LangActivitiesIndexRoute,
+  LangNewsIndexRoute: LangNewsIndexRoute,
+}
+
+const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LangRoute: LangRoute,
+  LangRoute: LangRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

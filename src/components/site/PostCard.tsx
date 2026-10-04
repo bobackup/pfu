@@ -31,7 +31,7 @@ export function PostCard({ post }: { post: Post }) {
           {post.location && <span className="inline-flex items-center gap-1"><MapPin className="size-3.5" />{post.location}</span>}
         </div>
         <h3 className="text-lg font-semibold leading-snug">
-          <Link to="/$lang/news/$slug" params={{ lang, slug: post.slug }} className="after:absolute-inset hover:text-primary">
+          <Link to="/$lang/news/$slug" params={{ lang, slug: post.slug }} className="hover:text-primary">
             {pickLocalized(post, "title", lang)}
           </Link>
         </h3>
