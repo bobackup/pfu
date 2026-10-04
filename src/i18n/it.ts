@@ -16,6 +16,7 @@ export const it = {
     language: "Lingua",
   },
   common: {
+    skip: "Vai al contenuto",
     readMore: "Leggi di più",
     allNews: "Tutte le news",
     placeholder: "Segnaposto",
@@ -148,6 +149,8 @@ export const it = {
     messageLabel: "Raccontaci qualcosa di te (competenze, disponibilità, lingue)",
   },
   contact: {
+    showMap: "Mostra mappa",
+    openMap: "Apri in Google Maps",
     title: "Contatti",
     intro: "Scrivici per informazioni, collaborazioni o richieste di aiuto.",
     address: "Sede",
@@ -163,6 +166,7 @@ export const it = {
     rights: "Tutti i diritti riservati.",
   },
   cookie: {
+    dialogLabel: "Preferenze cookie",
     text: "Usiamo solo cookie tecnici necessari al funzionamento del sito. Con il tuo consenso potremmo usare cookie di terze parti (es. mappe e video incorporati).",
     accept: "Accetta tutti",
     reject: "Solo necessari",

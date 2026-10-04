@@ -5,9 +5,9 @@ import { pageHead } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/$lang/cookies")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/cookies", t.legal.cookieTitle, t.cookie.text);
+    return pageHead({ lang: params.lang, matches }, "/cookies", t.legal.cookieTitle, t.cookie.text);
   },
   component: Cookies,
 });

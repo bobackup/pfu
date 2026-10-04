@@ -1,8 +1,14 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
+import { getPreferredLang } from "@/lib/origin.functions";
 
 export const Route = createFileRoute("/")({
-  beforeLoad: () => {
-    throw redirect({ to: "/$lang", params: { lang: "it" } });
+  beforeLoad: async () => {
+    // Server reads Accept-Language; on client navigations use the browser language.
+    const lang =
+      typeof window === "undefined"
+        ? await getPreferredLang()
+        : navigator.language.toLowerCase().startsWith("uk") ? "uk" : "it";
+    throw redirect({ to: "/$lang", params: { lang } });
   },
   head: () => ({
     meta: [

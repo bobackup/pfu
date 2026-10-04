@@ -13,9 +13,9 @@ const search = z.object({ cat: z.enum(["news", "event", "report", "press"]).opti
 export const Route = createFileRoute("/$lang/news/")({
   validateSearch: search,
   loader: ({ context }) => context.queryClient.ensureQueryData(postsQuery),
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/news", t.news.title, t.news.intro);
+    return pageHead({ lang: params.lang, matches }, "/news", t.news.title, t.news.intro);
   },
   component: News,
 });

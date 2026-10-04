@@ -25,7 +25,7 @@ export function CookieBanner() {
     window.dispatchEvent(new Event("pfu-consent"));
   };
   return (
-    <div role="dialog" aria-live="polite" aria-label="Cookie" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-2xl border bg-card p-5 shadow-card md:flex md:items-center md:gap-6">
+    <div role="dialog" aria-live="polite" aria-label={t.cookie.dialogLabel} className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-2xl border bg-card p-5 shadow-card md:flex md:items-center md:gap-6">
       <p className="text-sm text-muted-foreground">
         {t.cookie.text}{" "}
         <Link to="/$lang/cookies" params={{ lang }} className="font-semibold text-primary underline">{t.cookie.more}</Link>

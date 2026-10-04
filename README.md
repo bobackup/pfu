@@ -1,24 +1,19 @@
-# PfU
+# People for Ukraine — website
 
-Implement exactly the screenshot and nothing else
+Multilingual website (Italian default, Ukrainian; English-ready) for **People for Ukraine**, a Ukrainian-Italian non-profit association in Rimini. Public pages present the association, activities, news & events, donations (IBAN, 5×1000) and contact/volunteer forms; a protected admin area lets editors publish bilingual news/events and read form submissions.
 
-This project was built with [Lovable](https://lovable.dev).
+## Stack
+TanStack Start (React 19, SSR) · Vite · Tailwind CSS v4 · shadcn/ui · Lovable Cloud (database, auth, storage). Fonts (Manrope, Unbounded) are self-hosted.
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c32fef94-fc47-4e6f-bea3-1fd69b6a591d).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Setup
+```bash
+bun install
+bun run dev      # http://localhost:8080
+bunx vitest run  # tests
 ```
+Environment variables (`.env`) are provided by Lovable Cloud. Optional: `SITE_URL` (e.g. `https://example.org`) forces the origin used in canonical/hreflang URLs; otherwise it is taken from the request.
+
+## Content
+- Organisation details (IBAN, codice fiscale, address, socials, partners): `src/lib/site.ts`. Values in `[brackets]` are placeholders and are left out of structured data.
+- UI translations: `src/i18n/*.ts`. To add English, create `en.ts` and add it to `LOCALES`.
+- Admin: sign in at `/auth`; the first account became admin. News/events are managed at `/admin`.

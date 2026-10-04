@@ -7,9 +7,9 @@ import { PageHero } from "@/components/site/PageHero";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
 
 export const Route = createFileRoute("/$lang/get-involved")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/get-involved", t.involved.title, t.involved.intro);
+    return pageHead({ lang: params.lang, matches }, "/get-involved", t.involved.title, t.involved.intro);
   },
   component: Involved,
 });

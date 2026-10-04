@@ -21,6 +21,16 @@ export const ORG = {
   statutoUrl: "#", // replace with the uploaded Statuto PDF
 };
 
+/** True when a value is filled in (not empty and not a [bracketed] placeholder). */
+export function isReal(v: string | null | undefined): v is string {
+  return !!v && !/^\s*\[.*\]\s*$/.test(v);
+}
+
+/** Social URLs that point to an actual profile (a bare domain like https://facebook.com/ counts as unset). */
+export function realSocials(): string[] {
+  return Object.values(ORG.socials).filter((u) => isReal(u) && /^https?:\/\/[^/]+\/[^/?#]+/.test(u));
+}
+
 // Supporting partners. Each entry: name, website, logo (CDN asset URL).
 // Add new partners here as logos arrive; remove a placeholder slot from
 // the home page "Con il sostegno di" grid when the list is full.

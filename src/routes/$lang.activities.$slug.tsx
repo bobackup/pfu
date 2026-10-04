@@ -12,11 +12,11 @@ export const Route = createFileRoute("/$lang/activities/$slug")({
     if (!a) throw notFound();
     return { slug: a.slug };
   },
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const a = ACTIVITIES.find((x) => x.slug === params.slug);
     const l = isLocale(params.lang) ? params.lang : "it";
     if (!a) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
-    return pageHead(params.lang, `/activities/${a.slug}`, a.title[l], a.summary[l]);
+    return pageHead({ lang: params.lang, matches }, `/activities/${a.slug}`, a.title[l], a.summary[l]);
   },
   component: ActivityDetail,
 });

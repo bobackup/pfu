@@ -13,15 +13,12 @@ export const Route = createFileRoute("/$lang/news/$slug")({
     if (!post) throw notFound();
     return post;
   },
-  head: ({ params, loaderData }) => {
+  head: ({ params, loaderData, matches }) => {
     if (!loaderData) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     const l = isLocale(params.lang) ? params.lang : "it";
     const title = pickLocalized(loaderData, "title", l);
-    const head = pageHead(params.lang, `/news/${params.slug}`, title, pickLocalized(loaderData, "excerpt", l));
-    const meta: Array<Record<string, string>> = [...head.meta];
-    if (loaderData.cover_url?.startsWith("https://")) {
-      meta.push({ property: "og:image", content: loaderData.cover_url }, { name: "twitter:image", content: loaderData.cover_url });
-    }
+    const head = pageHead({ lang: params.lang, matches }, `/news/${params.slug}`, title, pickLocalized(loaderData, "excerpt", l), loaderData.cover_url);
+    const meta: Array<Record<string, string>> = head.meta.map((m) => ("property" in m && m.property === "og:type" ? { ...m, content: "article" } : m)) as Array<Record<string, string>>;
     const scripts =
       loaderData.category === "event" && loaderData.event_date
         ? [{

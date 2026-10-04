@@ -6,9 +6,9 @@ import { ACTIVITIES } from "@/lib/activities";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/$lang/activities/")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/activities", t.activities.title, t.activities.intro);
+    return pageHead({ lang: params.lang, matches }, "/activities", t.activities.title, t.activities.intro);
   },
   component: Activities,
 });
