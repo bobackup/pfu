@@ -24,7 +24,7 @@ function AdminPosts() {
   async function remove(id: string) {
     if (!confirm("Eliminare questo contenuto?")) return;
     const { error } = await supabase.from("posts").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Eliminato");
     qc.invalidateQueries({ queryKey: ["admin-posts"] });
     qc.invalidateQueries({ queryKey: ["posts"] });

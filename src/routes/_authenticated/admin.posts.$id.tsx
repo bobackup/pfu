@@ -53,24 +53,24 @@ function EditPost() {
     setUploading(true);
     const path = `${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9.]/g, "_")}`;
     const { error } = await supabase.storage.from("post-images").upload(path, file);
-    if (error) { setUploading(false); return toast.error(error.message); }
+    if (error) { setUploading(false); { toast.error(error.message); return; } }
     // Long-lived signed URL (bucket is private)
     const { data: signed, error: e2 } = await supabase.storage.from("post-images").createSignedUrl(path, 60 * 60 * 24 * 365 * 10);
     setUploading(false);
-    if (e2 || !signed) return toast.error(e2?.message ?? "Errore");
+    if (e2 || !signed) { toast.error(e2?.message ?? "Errore"); return; }
     set("cover_url", signed.signedUrl);
   }
 
   async function save(e: FormEvent) {
     e.preventDefault();
-    if (!form.title_it.trim()) return toast.error("Il titolo italiano è obbligatorio");
+    if (!form.title_it.trim()) { toast.error("Il titolo italiano è obbligatorio"); return; }
     const payload = { ...form, slug: form.slug?.trim() ? slugify(form.slug) : slugify(form.title_it) };
     setSaving(true);
     const { error } = isNew
       ? await supabase.from("posts").insert(payload)
       : await supabase.from("posts").update(payload).eq("id", id);
     setSaving(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Salvato");
     qc.invalidateQueries({ queryKey: ["admin-posts"] });
     qc.invalidateQueries({ queryKey: ["posts"] });

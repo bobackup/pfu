@@ -80,14 +80,14 @@ export function SubmissionForm({ kind, compact, messageLabel, submitLabel }: Pro
       {!compact && (
         <div>
           <Label htmlFor={`${kind}-name`}>{t.common.name} *</Label>
-          <Input id={`${kind}-name`} name="name" autoComplete="name" className="mt-1" aria-invalid={!!errors.name} aria-describedby={errors.name ? `${kind}-name-err` : undefined} />
+          <Input id={`${kind}-name`} name="name" autoComplete="name" className="mt-1" aria-invalid={!!errors["name"]} aria-describedby={errors["name"] ? `${kind}-name-err` : undefined} />
           {err("name")}
         </div>
       )}
       <div className={compact ? "flex flex-col gap-2 sm:flex-row" : ""}>
         <div className="flex-1">
           <Label htmlFor={`${kind}-email`} className={compact ? "sr-only" : ""}>{t.common.email} *</Label>
-          <Input id={`${kind}-email`} name="email" type="email" autoComplete="email" placeholder={compact ? t.common.email : undefined} className="mt-1" aria-invalid={!!errors.email} aria-describedby={errors.email ? `${kind}-email-err` : undefined} />
+          <Input id={`${kind}-email`} name="email" type="email" autoComplete="email" placeholder={compact ? t.common.email : undefined} className="mt-1" aria-invalid={!!errors["email"]} aria-describedby={errors["email"] ? `${kind}-email-err` : undefined} />
           {err("email")}
         </div>
         {compact && (
@@ -104,14 +104,14 @@ export function SubmissionForm({ kind, compact, messageLabel, submitLabel }: Pro
           </div>
           <div>
             <Label htmlFor={`${kind}-message`}>{messageLabel ?? t.common.message} *</Label>
-            <Textarea id={`${kind}-message`} name="message" rows={5} className="mt-1" aria-invalid={!!errors.message} aria-describedby={errors.message ? `${kind}-message-err` : undefined} />
+            <Textarea id={`${kind}-message`} name="message" rows={5} className="mt-1" aria-invalid={!!errors["message"]} aria-describedby={errors["message"] ? `${kind}-message-err` : undefined} />
             {err("message")}
           </div>
         </>
       )}
       <div>
         <label className="flex items-start gap-3 text-sm text-muted-foreground">
-          <input type="checkbox" name="consent" className="mt-1 size-4 accent-primary" aria-invalid={!!errors.consent} />
+          <input type="checkbox" name="consent" className="mt-1 size-4 accent-primary" aria-invalid={!!errors["consent"]} />
           <span>
             {t.common.consent}{" "}
             <Link to="/$lang/privacy" params={{ lang }} className="font-semibold text-primary underline">{t.common.privacyLink}</Link>
