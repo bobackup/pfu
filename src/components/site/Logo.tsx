@@ -1,23 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import type { Locale } from "@/i18n";
+import logoAsset from "@/assets/logo.svg.asset.json";
+import logoInvertedAsset from "@/assets/logo-inverted.svg.asset.json";
 
-/** Logo placeholder — replace the square mark with the real logo when available. */
 export function Logo({ lang, inverted = false }: { lang: Locale; inverted?: boolean }) {
   return (
-    <Link to="/$lang" params={{ lang }} className="flex items-center gap-3" aria-label="People for Ukraine — Home">
-      <span
-        className={`grid size-10 place-items-center rounded-lg border-2 border-dashed text-[10px] font-bold ${
-          inverted ? "border-primary-foreground/50 text-primary-foreground/70" : "border-primary/40 text-primary/70"
-        }`}
-        title="Logo placeholder"
-      >
-        LOGO
-      </span>
-      <span className={`font-display text-sm font-semibold leading-tight ${inverted ? "text-primary-foreground" : "text-primary-deep"}`}>
-        People for
-        <br />
-        Ukraine
-      </span>
+    <Link to="/$lang" params={{ lang }} className="flex items-center" aria-label="People for Ukraine — Home">
+      <img
+        src={inverted ? logoInvertedAsset.url : logoAsset.url}
+        alt="People for Ukraine"
+        className="h-11 w-auto"
+        width={211}
+        height={150}
+      />
     </Link>
   );
 }
