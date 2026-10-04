@@ -6,9 +6,9 @@ import { ORG } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/$lang/about")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/about", t.about.title, t.about.intro);
+    return pageHead({ lang: params.lang, matches }, "/about", t.about.title, t.about.intro);
   },
   component: About,
 });

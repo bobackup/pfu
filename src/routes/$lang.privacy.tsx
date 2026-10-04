@@ -5,9 +5,9 @@ import { ORG } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/$lang/privacy")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/privacy", t.legal.privacyTitle, t.legal.draft);
+    return pageHead({ lang: params.lang, matches }, "/privacy", t.legal.privacyTitle, t.legal.draft);
   },
   component: Privacy,
 });

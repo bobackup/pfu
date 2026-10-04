@@ -8,9 +8,9 @@ import { PageHero } from "@/components/site/PageHero";
 import { CopyField } from "@/components/site/CopyField";
 
 export const Route = createFileRoute("/$lang/donate")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/donate", t.donate.title, t.donate.intro);
+    return pageHead({ lang: params.lang, matches }, "/donate", t.donate.title, t.donate.intro);
   },
   component: Donate,
 });

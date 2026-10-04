@@ -16,9 +16,9 @@ import community from "@/assets/community.jpg";
 
 export const Route = createFileRoute("/$lang/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(postsQuery),
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "", `People for Ukraine — ${t.home.heroTitle}`, t.meta.siteDescription);
+    return pageHead({ lang: params.lang, matches }, "", `People for Ukraine — ${t.home.heroTitle}`, t.meta.siteDescription);
   },
   component: Home,
 });

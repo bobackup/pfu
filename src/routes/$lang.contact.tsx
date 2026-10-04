@@ -8,9 +8,9 @@ import { SubmissionForm } from "@/components/site/SubmissionForm";
 import { useCookieConsent } from "@/components/site/CookieBanner";
 
 export const Route = createFileRoute("/$lang/contact")({
-  head: ({ params }) => {
+  head: ({ params, matches }) => {
     const t = getDict(params.lang);
-    return pageHead(params.lang, "/contact", t.contact.title, t.contact.intro);
+    return pageHead({ lang: params.lang, matches }, "/contact", t.contact.title, t.contact.intro);
   },
   component: Contact,
 });
