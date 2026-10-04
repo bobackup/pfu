@@ -1,29 +1,19 @@
-# Welcome to your Lovable project
+# People for Ukraine — website
 
-This project was built with [Lovable](https://lovable.dev).
+Multilingual website (Italian default, Ukrainian; English-ready) for **People for Ukraine**, a Ukrainian-Italian non-profit association in Rimini. Public pages present the association, activities, news & events, donations (IBAN, 5×1000) and contact/volunteer forms; a protected admin area lets editors publish bilingual news/events and read form submissions.
 
-## Build with Lovable
+## Stack
+TanStack Start (React 19, SSR) · Vite · Tailwind CSS v4 · shadcn/ui · Lovable Cloud (database, auth, storage). Fonts (Manrope, Unbounded) are self-hosted.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Setup
+```bash
+bun install
+bun run dev      # http://localhost:8080
+bunx vitest run  # tests
 ```
+Environment variables (`.env`) are provided by Lovable Cloud. Optional: `SITE_URL` (e.g. `https://example.org`) forces the origin used in canonical/hreflang URLs; otherwise it is taken from the request.
 
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Content
+- Organisation details (IBAN, codice fiscale, address, socials, partners): `src/lib/site.ts`. Values in `[brackets]` are placeholders and are left out of structured data.
+- UI translations: `src/i18n/*.ts`. To add English, create `en.ts` and add it to `LOCALES`.
+- Admin: sign in at `/auth`; the first account became admin. News/events are managed at `/admin`.

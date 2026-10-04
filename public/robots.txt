@@ -1,4 +1,3 @@
 User-agent: *
 Disallow: /admin
 Disallow: /auth
-Sitemap: /sitemap.xml

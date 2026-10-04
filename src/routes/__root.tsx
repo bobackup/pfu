@@ -12,9 +12,11 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import manropeCss from "@fontsource-variable/manrope/index.css?url";
+import unboundedCss from "@fontsource-variable/unbounded/index.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
-import { ORG } from "@/lib/site";
+import { ORG, isReal, realSocials } from "@/lib/site";
 
 function NotFoundComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -63,35 +65,43 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+// JSON-LD built only from real values: bracketed placeholders and empty social links are skipped.
+function buildNgoJsonLd() {
+  const ld: Record<string, unknown> = { "@context": "https://schema.org", "@type": "NGO", name: ORG.name };
+  if (isReal(ORG.legalName)) ld.legalName = ORG.legalName;
+  const address: Record<string, string> = { "@type": "PostalAddress", addressLocality: "Rimini", addressCountry: "IT" };
+  if (isReal(ORG.address)) address.streetAddress = ORG.address;
+  ld.address = address;
+  if (isReal(ORG.email)) ld.email = ORG.email;
+  if (isReal(ORG.phone)) ld.telephone = ORG.phone;
+  if (isReal(ORG.codiceFiscale)) ld.taxID = ORG.codiceFiscale;
+  const sameAs = realSocials();
+  if (sameAs.length) ld.sameAs = sameAs;
+  return ld;
+}
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  head: ({ matches }) => ({
     meta: [
       { charSet: "utf-8" },
+      // Never index the editor login or admin area.
+      ...(matches.some((m) => m.routeId === "/auth" || m.routeId.startsWith("/_authenticated"))
+        ? [{ name: "robots", content: "noindex, nofollow" }]
+        : []),
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#1f3f86" },
       { property: "og:site_name", content: "People for Ukraine" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap&subset=cyrillic",
-      },
+      { rel: "stylesheet", href: manropeCss },
+      { rel: "stylesheet", href: unboundedCss },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "NGO",
-          name: ORG.name,
-          address: { "@type": "PostalAddress", addressLocality: "Rimini", addressCountry: "IT" },
-          email: ORG.email,
-          sameAs: Object.values(ORG.socials),
-        }),
+        children: JSON.stringify(buildNgoJsonLd()),
       },
     ],
   }),

@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone, Send } from "lucide-react";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { ORG } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
-import { useCookieConsent } from "@/components/site/CookieBanner";
 
 export const Route = createFileRoute("/$lang/contact")({
   head: ({ params, matches }) => {
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/$lang/contact")({
 
 function Contact() {
   const { t } = useT();
-  const consent = useCookieConsent();
+  const [showMap, setShowMap] = useState(false);
   return (
     <>
       <PageHero title={t.contact.title} intro={t.contact.intro} />
@@ -40,12 +40,19 @@ function Contact() {
             </div>
           </div>
           <div className="aspect-[4/3] overflow-hidden rounded-2xl border bg-muted">
-            {consent === "all" ? (
-              <iframe title="Map" src={ORG.mapEmbed} className="size-full" loading="lazy" />
+            {showMap ? (
+              <iframe title="Google Maps" src={ORG.mapEmbed} className="size-full" loading="lazy" />
             ) : (
-              <a href={ORG.mapLink} target="_blank" rel="noopener noreferrer" className="grid size-full place-items-center p-6 text-center text-sm font-semibold text-primary">
-                <span><MapPin className="mx-auto mb-2 size-8" />Google Maps — Rimini</span>
-              </a>
+              <div className="grid size-full place-items-center p-6 text-center">
+                <div>
+                  <MapPin className="mx-auto mb-2 size-8 text-primary" />
+                  <p className="text-sm font-semibold">Google Maps — Rimini</p>
+                  <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm font-semibold">
+                    <button type="button" onClick={() => setShowMap(true)} className="rounded-full bg-primary px-4 py-2 text-primary-foreground">{t.contact.showMap}</button>
+                    <a href={ORG.mapLink} target="_blank" rel="noopener noreferrer" className="rounded-full border px-4 py-2 text-primary">{t.contact.openMap}</a>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </div>
