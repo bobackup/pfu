@@ -7,7 +7,7 @@ import { pageHead } from "@/lib/seo";
 import { postsQuery } from "@/lib/queries";
 import { formatDate, isPastEvent } from "@/lib/posts";
 import { ACTIVITIES } from "@/lib/activities";
-import { ORG } from "@/lib/site";
+import { ORG, PARTNERS } from "@/lib/site";
 import { PostCard } from "@/components/site/PostCard";
 import { CopyField } from "@/components/site/CopyField";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
@@ -153,8 +153,21 @@ function Home() {
         <div className="container-site">
           <h2 className="text-center font-sans text-sm font-bold uppercase tracking-widest text-muted-foreground">{t.home.partnersTitle}</h2>
           <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="grid h-16 place-items-center rounded-lg border border-dashed text-xs text-muted-foreground">
+            {PARTNERS.map((p) => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={p.name}
+                title={p.name}
+                className="grid h-16 place-items-center rounded-lg border bg-card px-4 shadow-card transition hover:-translate-y-0.5"
+              >
+                <img src={p.logo} alt={p.name} className="h-9 w-auto max-w-full" />
+              </a>
+            ))}
+            {Array.from({ length: Math.max(0, 5 - PARTNERS.length) }).map((_, i) => (
+              <div key={`ph-${i}`} className="grid h-16 place-items-center rounded-lg border border-dashed text-xs text-muted-foreground">
                 {t.home.partnerPlaceholder} {i + 1}
               </div>
             ))}
