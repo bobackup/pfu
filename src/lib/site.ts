@@ -1,18 +1,18 @@
 // Organisation details. Values in [brackets] are placeholders to replace with real data.
 export const ORG = {
   name: "People for Ukraine",
-  legalName: "[Associazione People for Ukraine APS]",
-  legalForm: "[Associazione di Promozione Sociale — da verificare]",
-  address: "[Via Esempio 1, 47921 Rimini (RN), Italia]",
-  codiceFiscale: "[00000000000]",
+  legalName: "People for Ukraine ODV-ETS",
+  legalForm: "ODV — Organismo di Volontariato (Ente del Terzo Settore)",
+  address: "Via Dei Mille, 16 — 47842 San Giovanni in Marignano (RN), Italia",
+  codiceFiscale: "91185700407",
   iban: "[IT00 X000 0000 0000 0000 0000 000]",
   bankHolder: "[Associazione People for Ukraine]",
   bankName: "[Nome Banca]",
-  paymentUrl: "https://example.com/dona", // placeholder external payment link
-  email: "[info@example.org]",
+  paymentUrl: "https://paypal.me/PeopleforUkraine",
+  email: "info@people4ukraine.org",
   phone: "[+39 000 000 0000]",
-  mapEmbed: "https://www.google.com/maps?q=Rimini&output=embed",
-  mapLink: "https://maps.google.com/?q=Rimini",
+  mapEmbed: "https://www.google.com/maps?q=Via%20Dei%20Mille%2016%2C%2047842%20San%20Giovanni%20in%20Marignano%20(RN)%2C%20Italia&output=embed",
+  mapLink: "https://maps.google.com/?q=Via+Dei+Mille+16,+47842+San+Giovanni+in+Marignano+(RN),+Italia",
   socials: {
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",
