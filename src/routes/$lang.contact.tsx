@@ -46,7 +46,7 @@ function Contact() {
               <div className="grid size-full place-items-center p-6 text-center">
                 <div>
                   <MapPin className="mx-auto mb-2 size-8 text-primary" />
-                  <p className="text-sm font-semibold">Google Maps — Rimini</p>
+                  <p className="text-sm font-semibold">Google Maps — San Giovanni in Marignano</p>
                   <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm font-semibold">
                     <button type="button" onClick={() => setShowMap(true)} className="rounded-full bg-primary px-4 py-2 text-primary-foreground">{t.contact.showMap}</button>
                     <a href={ORG.mapLink} target="_blank" rel="noopener noreferrer" className="rounded-full border px-4 py-2 text-primary">{t.contact.openMap}</a>
