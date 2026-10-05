@@ -11,7 +11,10 @@
 | `address` | Via Dei Mille, 16 — 47842 San Giovanni in Marignano (RN), Italia |
 | `codiceFiscale` | 91185700407 |
 | `email` | info@people4ukraine.org |
+| `paymentUrl` | https://paypal.me/PeopleforUkraine (розшифровано з QR-коду з вашого скану; профіль PEOPLE FOR UKRAINE ODV-ETS активний) |
 | `mapEmbed` / `mapLink` | прив'язані до нової адреси (San Giovanni in Marignano) |
+
+Рахунок банку (IBAN, банк, власник) користувач поки не додав — ці поля лишаються заглушками в `[дужках]`.
 
 ## Що лишається заглушкою (дані ще не надані)
 
