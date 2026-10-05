@@ -69,7 +69,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 function buildNgoJsonLd() {
   const ld: Record<string, unknown> = { "@context": "https://schema.org", "@type": "NGO", name: ORG.name };
   if (isReal(ORG.legalName)) ld["legalName"] = ORG.legalName;
-  const address: Record<string, string> = { "@type": "PostalAddress", addressLocality: "Rimini", addressCountry: "IT" };
+  const address: Record<string, string> = { "@type": "PostalAddress", addressLocality: "San Giovanni in Marignano", addressCountry: "IT" };
   if (isReal(ORG.address)) address["streetAddress"] = ORG.address;
   ld["address"] = address;
   if (isReal(ORG.email)) ld["email"] = ORG.email;
