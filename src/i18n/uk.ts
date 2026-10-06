@@ -87,7 +87,6 @@ export const uk: Dict = {
     teamTitle: "Правління",
     legalTitle: "Юридична інформація",
     statuto: "Завантажити Статут (PDF)",
-    statutoNote: "Документ буде додано",
     roles: ["Президент", "Віцепрезидент", "Секретар", "Скарбник"],
   },
   activities: {

@@ -53,8 +53,8 @@ function About() {
             <div><dt className="text-muted-foreground">Sede legale</dt><dd className="font-semibold">{ORG.address}</dd></div>
             <div><dt className="text-muted-foreground">Codice fiscale</dt><dd className="font-mono font-semibold">{ORG.codiceFiscale}</dd></div>
           </dl>
-          <a href={ORG.statutoUrl} className="mt-6 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold text-primary hover:bg-secondary">
-            <FileDown className="size-4" /> {t.about.statuto} <span className="text-xs text-muted-foreground">({t.about.statutoNote})</span>
+          <a href={ORG.statutoUrl} target="_blank" rel="noopener noreferrer" download className="mt-6 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold text-primary hover:bg-secondary">
+            <FileDown className="size-4" /> {t.about.statuto}
           </a>
         </div>
       </section>

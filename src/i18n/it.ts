@@ -85,7 +85,6 @@ export const it = {
     teamTitle: "Il direttivo",
     legalTitle: "Informazioni legali",
     statuto: "Scarica lo Statuto (PDF)",
-    statutoNote: "Documento da caricare",
     roles: ["Presidente", "Vicepresidente", "Segretario/a", "Tesoriere/a"],
   },
   activities: {

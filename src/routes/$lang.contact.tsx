@@ -34,9 +34,9 @@ function Contact() {
           <div>
             <p className="text-sm font-semibold text-muted-foreground">{t.contact.follow}</p>
             <div className="mt-2 flex gap-3">
-              <a href={ORG.socials.facebook} aria-label="Facebook" className="rounded-full bg-secondary p-2.5"><Facebook className="size-5 text-primary" /></a>
-              <a href={ORG.socials.instagram} aria-label="Instagram" className="rounded-full bg-secondary p-2.5"><Instagram className="size-5 text-primary" /></a>
-              <a href={ORG.socials.telegram} aria-label="Telegram" className="rounded-full bg-secondary p-2.5"><Send className="size-5 text-primary" /></a>
+              {isReal(ORG.socials.facebook) && <a href={ORG.socials.facebook} aria-label="Facebook" className="rounded-full bg-secondary p-2.5"><Facebook className="size-5 text-primary" /></a>}
+              {isReal(ORG.socials.instagram) && <a href={ORG.socials.instagram} aria-label="Instagram" className="rounded-full bg-secondary p-2.5"><Instagram className="size-5 text-primary" /></a>}
+              {isReal(ORG.socials.telegram) && <a href={ORG.socials.telegram} aria-label="Telegram" className="rounded-full bg-secondary p-2.5"><Send className="size-5 text-primary" /></a>}
             </div>
           </div>
           <div className="aspect-[4/3] overflow-hidden rounded-2xl border bg-muted">
