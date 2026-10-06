@@ -18,7 +18,7 @@
 - ORG.socials.instagram → `https://www.instagram.com/people_for_ukraine`
 - Both appear automatically in the contact page, footer, and the JSON-LD `sameAs` (realSocials already picks them up). Telegram stays a placeholder and its button is hidden.
 
-## 5. Statuto PDF
+## 4. Statuto PDF
 - Create a CDN asset pointer from the uploaded `001_-_atto_registrato.pdf` → `src/assets/statuto.pdf.asset.json`.
 - ORG.statutoUrl → that CDN URL.
 - About page: the "Scarica lo Statuto (PDF)" button becomes a real download link (`target="_blank"`, download attribute) and the "Documento da caricare" note is dropped (the `statutoNote` i18n key is removed).
