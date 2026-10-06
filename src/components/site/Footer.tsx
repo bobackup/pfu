@@ -18,9 +18,9 @@ export function Footer() {
           <Logo lang={lang} inverted />
           <p className="text-sm text-primary-foreground/70">{t.footer.tagline}</p>
           <div className="flex gap-3">
-            {isReal(ORG.socials.facebook) && <a href={ORG.socials.facebook} aria-label="Facebook" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Facebook className="size-4" /></a>}
-            {isReal(ORG.socials.instagram) && <a href={ORG.socials.instagram} aria-label="Instagram" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Instagram className="size-4" /></a>}
-            {isReal(ORG.socials.telegram) && <a href={ORG.socials.telegram} aria-label="Telegram" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Send className="size-4" /></a>}
+            {isRealSocial(ORG.socials.facebook) && <a href={ORG.socials.facebook} aria-label="Facebook" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Facebook className="size-4" /></a>}
+            {isRealSocial(ORG.socials.instagram) && <a href={ORG.socials.instagram} aria-label="Instagram" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Instagram className="size-4" /></a>}
+            {isRealSocial(ORG.socials.telegram) && <a href={ORG.socials.telegram} aria-label="Telegram" className="rounded-full bg-primary-foreground/10 p-2 hover:bg-primary-foreground/20"><Send className="size-4" /></a>}
           </div>
         </div>
         <div>
