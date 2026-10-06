@@ -32,8 +32,12 @@ export function isReal(v: string | null | undefined): v is string {
 }
 
 /** Social URLs that point to an actual profile (a bare domain like https://facebook.com/ counts as unset). */
+export function isRealSocial(u: string | null | undefined): boolean {
+  return isReal(u) && /^https?:\/\/[^/]+\/[^/?#]+/.test(u);
+}
+
 export function realSocials(): string[] {
-  return Object.values(ORG.socials).filter((u) => isReal(u) && /^https?:\/\/[^/]+\/[^/?#]+/.test(u));
+  return Object.values(ORG.socials).filter(isRealSocial);
 }
 
 // Supporting partners. Each entry: name, website, logo (CDN asset URL).
