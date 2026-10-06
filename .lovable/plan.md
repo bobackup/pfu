@@ -6,7 +6,7 @@
 - bankName: `Intesa Sanpaolo`
 - new field swift: `BCITITMM`
 - new field donationCausal: `Donazione di beneficenza`
-- phone, socials.instagram, socials.telegram stay placeholders
+- phone, socials.telegram stay placeholders
 
 ## 2. Donate page
 - The bank-transfer grid gains a third column: **SWIFT/BIC** (holder, bank, SWIFT).
