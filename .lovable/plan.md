@@ -13,12 +13,10 @@
 - The causal line renders the translated label followed by `ORG.donationCausal` instead of the hardcoded sentence.
 - New i18n keys in both dictionaries: `donate.swift` ("SWIFT/BIC"), `donate.causalLabel` (it: "Causale consigliata:", uk: "Рекомендоване призначення платежу:"). The old `causal` key is replaced.
 
-## 3. Facebook
-- ORG.socials.facebook → `https://www.facebook.com/peopleforukraine`.
-- It appears automatically in the contact page, footer, and the JSON-LD `sameAs` (realSocials already picks it up).
-
-## 4. Hide unused social buttons
-- Contact page and footer render each social icon only when the URL is real (`isReal`), so Instagram and Telegram disappear until real profiles exist. Design unchanged for real links.
+## 3. Social profiles
+- ORG.socials.facebook → `https://www.facebook.com/peopleforukraine`
+- ORG.socials.instagram → `https://www.instagram.com/people_for_ukraine`
+- Both appear automatically in the contact page, footer, and the JSON-LD `sameAs` (realSocials already picks them up). Telegram stays a placeholder and its button is hidden.
 
 ## 5. Statuto PDF
 - Create a CDN asset pointer from the uploaded `001_-_atto_registrato.pdf` → `src/assets/statuto.pdf.asset.json`.
