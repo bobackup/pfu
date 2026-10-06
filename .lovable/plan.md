@@ -25,4 +25,4 @@
 
 ## Verification
 - tsgo --noEmit, vitest.
-- Playwright on /it/donate, /uk/donate, /it/about, /uk/contact: SWIFT row, causal text, Facebook link live, Instagram/Telegram hidden, Statuto button downloads the real PDF.
+- Playwright on /it/donate, /uk/donate, /it/about, /uk/contact: SWIFT row, causal text, Facebook and Instagram links live, Telegram hidden, Statuto button downloads the real PDF.
