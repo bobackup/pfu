@@ -87,7 +87,6 @@ export const uk: Dict = {
     teamTitle: "Правління",
     legalTitle: "Юридична інформація",
     statuto: "Завантажити Статут (PDF)",
-    statutoNote: "Документ буде додано",
     roles: ["Президент", "Віцепрезидент", "Секретар", "Скарбник"],
   },
   activities: {
@@ -117,7 +116,8 @@ export const uk: Dict = {
     holder: "Отримувач",
     bank: "Банк",
     iban: "IBAN",
-    causal: "Рекомендоване призначення: «Donazione liberale — People for Ukraine»",
+    swift: "SWIFT/BIC",
+    causalLabel: "Рекомендоване призначення платежу:",
     onlineTitle: "Онлайн-пожертва",
     onlineText: "Безпечна оплата карткою або PayPal через зовнішню платформу.",
     onlineCta: "Пожертвувати онлайн",

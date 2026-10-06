@@ -3,14 +3,14 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/i18n";
 
-export function CopyField({ label, value }: { label: string; value: string }) {
+export function CopyField({ label, value, display }: { label: string; value: string; display?: string }) {
   const { t } = useT();
   const [done, setDone] = useState(false);
   return (
     <div>
       <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</div>
       <div className="mt-1 flex items-center gap-2 rounded-lg border bg-muted px-3 py-2">
-        <span className="flex-1 break-all font-mono text-sm sm:text-base">{value}</span>
+        <span className="flex-1 break-all font-mono text-sm sm:text-base">{display ?? value}</span>
         <Button
           size="sm"
           variant="outline"

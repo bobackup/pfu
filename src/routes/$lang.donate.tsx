@@ -24,12 +24,13 @@ function Donate() {
         <div className="rounded-2xl border bg-card p-7 shadow-card lg:col-span-2">
           <div className="flex items-center gap-3"><Landmark className="size-6 text-primary" /><h2 className="text-2xl font-semibold">{t.donate.bankTitle}</h2></div>
           <div className="mt-6 space-y-4">
-            <CopyField label={t.donate.iban} value={ORG.iban} />
-            <div className="grid gap-4 sm:grid-cols-2 text-sm">
+            <CopyField label={t.donate.iban} value={ORG.iban} display={ORG.ibanDisplay} />
+            <div className="grid gap-4 text-sm sm:grid-cols-3">
               <div><div className="text-xs font-semibold uppercase text-muted-foreground">{t.donate.holder}</div><div className="mt-1 font-semibold">{ORG.bankHolder}</div></div>
               <div><div className="text-xs font-semibold uppercase text-muted-foreground">{t.donate.bank}</div><div className="mt-1 font-semibold">{ORG.bankName}</div></div>
+              <div><div className="text-xs font-semibold uppercase text-muted-foreground">{t.donate.swift}</div><div className="mt-1 font-mono font-semibold">{ORG.swift}</div></div>
             </div>
-            <p className="text-sm text-muted-foreground">{t.donate.causal}</p>
+            <p className="text-sm text-muted-foreground">{t.donate.causalLabel} <span className="font-medium text-foreground">{ORG.donationCausal}</span></p>
           </div>
         </div>
         <div className="flex flex-col rounded-2xl bg-primary p-7 text-primary-foreground">

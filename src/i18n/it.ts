@@ -85,7 +85,6 @@ export const it = {
     teamTitle: "Il direttivo",
     legalTitle: "Informazioni legali",
     statuto: "Scarica lo Statuto (PDF)",
-    statutoNote: "Documento da caricare",
     roles: ["Presidente", "Vicepresidente", "Segretario/a", "Tesoriere/a"],
   },
   activities: {
@@ -115,7 +114,8 @@ export const it = {
     holder: "Intestatario",
     bank: "Banca",
     iban: "IBAN",
-    causal: "Causale consigliata: «Donazione liberale — People for Ukraine»",
+    swift: "SWIFT/BIC",
+    causalLabel: "Causale consigliata:",
     onlineTitle: "Donazione online",
     onlineText: "Paga in modo sicuro con carta o PayPal tramite la piattaforma esterna.",
     onlineCta: "Dona online",
