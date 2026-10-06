@@ -1,27 +1,30 @@
-# Додати банківські реквізити (Intesa Sanpaolo)
+# Bank details + Facebook + Statuto PDF
 
-Дані надані користувачем: IBAN IT07S0306909606100000186199 (контрольна сума перевірена — валідний), SWIFT/BIC BCITITMM, інтестатаріо PEOPLEFORUKRAINE ODV-ETS, каузале «Donazione di beneficenza».
+## 1. Bank details (src/lib/site.ts, ORG)
+- iban: `IT07S0306909606100000186199` (displayed grouped for readability; CopyField copies the raw value)
+- bankHolder: `PEOPLEFORUKRAINE ODV-ETS`
+- bankName: `Intesa Sanpaolo`
+- new field swift: `BCITITMM`
+- new field donationCausal: `Donazione di beneficenza`
+- phone, socials.instagram, socials.telegram stay placeholders
 
-## Зміни
+## 2. Donate page
+- The bank-transfer grid gains a third column: **SWIFT/BIC** (holder, bank, SWIFT).
+- The causal line renders the translated label followed by `ORG.donationCausal` instead of the hardcoded sentence.
+- New i18n keys in both dictionaries: `donate.swift` ("SWIFT/BIC"), `donate.causalLabel` (it: "Causale consigliata:", uk: "Рекомендоване призначення платежу:"). The old `causal` key is replaced.
 
-### 1. `src/lib/site.ts` (об'єкт ORG)
-- `iban`: "IT07 S030 6909 6061 0000 0186 199" (з пробілами для читабельності, CopyField копіює як є)
-- `bankHolder`: PEOPLEFORUKRAINE ODV-ETS
-- `bankName`: Intesa Sanpaolo (визначено з BIC BCITITMM — код належить Intesa Sanpaolo, головне відділення, Мілан; ABI 03069 в IBAN відповідає тому ж банку)
-- нове поле `swift`: BCITITMM
-- нове поле `donationCausal`: Donazione di beneficenza
+## 3. Facebook
+- ORG.socials.facebook → `https://www.facebook.com/peopleforukraine`.
+- It appears automatically in the contact page, footer, and the JSON-LD `sameAs` (realSocials already picks it up).
 
-### 2. Сторінка «Донат» (`src/routes/$lang.donate.tsx`)
-У картці «Bonifico bancario» сітка з 2 полів (Інтестатаріо, Банк) стає з 3: додається SWIFT/BIC — BCITITMM.
-Рядок каузале тепер бере значення з `ORG.donationCausal` замість зашитого тексту.
+## 4. Hide unused social buttons
+- Contact page and footer render each social icon only when the URL is real (`isReal`), so Instagram and Telegram disappear until real profiles exist. Design unchanged for real links.
 
-### 3. Словники (`src/i18n/it.ts`, `uk.ts`)
-- новий ключ `donate.swift`: «SWIFT/BIC» (обидва мови однаково)
-- `donate.causal` → `causalLabel`: it — «Causale consigliata:», uk — «Рекомендоване призначення платежу:» (саме значення каузале — спільне, з ORG)
+## 5. Statuto PDF
+- Create a CDN asset pointer from the uploaded `001_-_atto_registrato.pdf` → `src/assets/statuto.pdf.asset.json`.
+- ORG.statutoUrl → that CDN URL.
+- About page: the "Scarica lo Statuto (PDF)" button becomes a real download link (`target="_blank"`, download attribute) and the "Documento da caricare" note is dropped (the `statutoNote` i18n key is removed).
 
-## Залишається заглушкою
-- Телефон, соцмережі (Facebook / Instagram / Telegram), посилання на Statuto PDF
-
-## Перевірка
-- tsgo --noEmit + віттести
-- Playwright: сторінка /it/donate — IBAN, інтестатаріо, банк, SWIFT, каузале; кнопка «Dona online» веде на paypal.me/PeopleforUkraine
+## Verification
+- tsgo --noEmit, vitest.
+- Playwright on /it/donate, /uk/donate, /it/about, /uk/contact: SWIFT row, causal text, Facebook link live, Instagram/Telegram hidden, Statuto button downloads the real PDF.
