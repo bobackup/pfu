@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone, Send } from "lucide-react";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { ORG, isReal } from "@/lib/site";
+import { ORG, isRealSocial } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
 

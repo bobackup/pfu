@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Send } from "lucide-react";
 import { useT } from "@/i18n";
-import { ORG, isReal } from "@/lib/site";
+import { ORG, isRealSocial } from "@/lib/site";
 import { Logo } from "./Logo";
 
 export function Footer() {
