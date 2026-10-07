@@ -8,14 +8,12 @@ import { postsQuery } from "@/lib/queries";
 import { formatDate, isPastEvent } from "@/lib/posts";
 import { ACTIVITIES } from "@/lib/activities";
 import { ORG, PARTNERS } from "@/lib/site";
+import { HOME_GALLERY } from "@/lib/gallery";
 import { PostCard } from "@/components/site/PostCard";
 import { CopyField } from "@/components/site/CopyField";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
 import hero from "@/assets/hero.jpg";
 import community from "@/assets/community.jpg";
-import communityAction from "@/assets/community-action.webp.asset.json";
-import humanitarianWarehouse from "@/assets/humanitarian-warehouse.webp.asset.json";
-import ambulanceDelivery from "@/assets/ambulance-delivery.webp.asset.json";
 
 export const Route = createFileRoute("/$lang/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(postsQuery),
@@ -120,14 +118,14 @@ function Home() {
 
       <section className="container-site pb-20">
         <h2 className="text-2xl font-semibold md:text-3xl">{t.home.galleryTitle}</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr]">
-          {[communityAction.url, humanitarianWarehouse.url, ambulanceDelivery.url].map((src, index) => (
+        <div className="mt-8 columns-1 gap-4 sm:columns-2 lg:columns-3">
+          {HOME_GALLERY.map((photo) => (
             <img
-              key={src}
-              src={src}
-              alt={t.home.galleryAlts[index]}
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt[lang]}
               loading="lazy"
-              className="aspect-[4/3] size-full rounded-2xl object-cover shadow-card"
+              className="mb-4 block h-auto w-full break-inside-avoid rounded-2xl shadow-card"
             />
           ))}
         </div>

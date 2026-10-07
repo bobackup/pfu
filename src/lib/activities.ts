@@ -4,6 +4,13 @@ import humanitarianWarehouse from "@/assets/humanitarian-warehouse.webp.asset.js
 import ambulanceDelivery from "@/assets/ambulance-delivery.webp.asset.json";
 import frontlineAid from "@/assets/frontline-aid.webp.asset.json";
 import cultureEvent from "@/assets/culture-event.webp.asset.json";
+import {
+  CULTURE_GALLERY,
+  FIELD_SUPPORT_GALLERY,
+  HUMANITARIAN_GALLERY,
+  VEHICLES_GALLERY,
+  type GalleryPhoto,
+} from "@/lib/gallery";
 
 export interface Activity {
   slug: string;
@@ -13,6 +20,7 @@ export interface Activity {
   body: Record<Locale, string[]>;
   image: string;
   imageAlt: Record<Locale, string>;
+  gallery: GalleryPhoto[];
 }
 
 // Static content: edit here. Placeholder text is marked as such.
@@ -35,11 +43,12 @@ export const ACTIVITIES: Activity[] = [
         "Ми забезпечуємо необхідним військові підрозділи, частини та бригади, дитячі будинки, центри надання допомоги й притулки для тварин. Співпраця з громадами, асоціаціями та волонтерами допомагає доставляти підтримку туди, де вона потрібна.",
       ],
     },
-    image: humanitarianWarehouse.url,
+    image: HUMANITARIAN_GALLERY[1]?.src ?? humanitarianWarehouse.url,
     imageAlt: {
       it: "Scatole di aiuti umanitari preparate per la consegna in Ucraina",
       uk: "Коробки гуманітарної допомоги, підготовлені до відправлення в Україну",
     },
+    gallery: HUMANITARIAN_GALLERY,
   },
   {
     slug: "accoglienza",
@@ -59,11 +68,12 @@ export const ACTIVITIES: Activity[] = [
         "Асоціація також передала машини швидкої допомоги українським громадам та адміністраціям, підтримуючи їхню спроможність надавати допомогу людям.",
       ],
     },
-    image: ambulanceDelivery.url,
+    image: VEHICLES_GALLERY[0]?.src ?? ambulanceDelivery.url,
     imageAlt: {
       it: "Volontari di People for Ukraine durante la consegna di un'ambulanza",
       uk: "Волонтери People for Ukraine під час передачі машини швидкої допомоги",
     },
+    gallery: VEHICLES_GALLERY,
   },
   {
     slug: "cultura",
@@ -83,11 +93,12 @@ export const ACTIVITIES: Activity[] = [
         "Ми популяризуємо українську культуру як місток для діалогу та взаєморозуміння. Через події, зустрічі й міжкультурну співпрацю сприяємо громадянській участі, захисту прав та справжній інтеграції в італійському суспільстві.",
       ],
     },
-    image: cultureEvent.url,
+    image: CULTURE_GALLERY[1]?.src ?? cultureEvent.url,
     imageAlt: {
       it: "Evento pubblico di People for Ukraine con uno stand della comunità ucraina",
       uk: "Публічний захід People for Ukraine зі стендом української громади",
     },
+    gallery: CULTURE_GALLERY,
   },
   {
     slug: "bambini",
@@ -107,10 +118,11 @@ export const ACTIVITIES: Activity[] = [
         "Допомога також надходить до дитячих будинків, центрів надання допомоги та притулків для тварин. Кожна передача ґрунтується на конкретних потребах і прямому зв'язку з отримувачами.",
       ],
     },
-    image: frontlineAid.url,
+    image: FIELD_SUPPORT_GALLERY[4]?.src ?? frontlineAid.url,
     imageAlt: {
       it: "Consegna di generi alimentari sul campo in Ucraina",
       uk: "Передача продуктів харчування на місці в Україні",
     },
+    gallery: FIELD_SUPPORT_GALLERY,
   },
 ];
