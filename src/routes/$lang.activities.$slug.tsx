@@ -35,6 +35,20 @@ function ActivityDetail() {
         <div className="prose-site mt-8 text-lg text-foreground/85">
           {a.body[lang].map((p) => <p key={p}>{p}</p>)}
         </div>
+        <section className="mt-12" aria-labelledby="activity-gallery-title">
+          <h2 id="activity-gallery-title" className="text-2xl font-semibold">{t.activities.gallery}</h2>
+          <div className="mt-6 columns-1 gap-4 sm:columns-2 lg:columns-3">
+            {a.gallery.map((photo) => (
+              <img
+                key={photo.src}
+                src={photo.src}
+                alt={photo.alt[lang]}
+                loading="lazy"
+                className="mb-4 block h-auto w-full break-inside-avoid rounded-2xl shadow-card"
+              />
+            ))}
+          </div>
+        </section>
         <div className="mt-10 flex flex-wrap items-center gap-4 rounded-2xl bg-accent-soft p-6">
           <p className="flex-1 font-semibold">{t.activities.related}</p>
           <Button asChild variant="donate" className="rounded-full"><Link to="/$lang/donate" params={{ lang }}><Heart /> {t.nav.donate}</Link></Button>

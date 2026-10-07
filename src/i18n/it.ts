@@ -58,11 +58,6 @@ export const it = {
       { value: "100+", label: "Eventi, manifestazioni e incontri" },
     ],
     galleryTitle: "L'impegno in immagini",
-    galleryAlts: [
-      "Volontari di People for Ukraine a una manifestazione per l'Ucraina",
-      "Aiuti umanitari raccolti e preparati per la spedizione",
-      "Consegna di un'ambulanza da parte dei volontari",
-    ],
     donateTitle: "Ogni contributo conta",
     donateText:
       "Con un bonifico, una donazione online o il tuo 5×1000 puoi sostenere concretamente le persone colpite dalla guerra.",
@@ -102,6 +97,7 @@ export const it = {
   activities: {
     title: "Le nostre attività",
     intro: "Quattro aree di intervento, un unico obiettivo: stare accanto alle persone colpite dalla guerra.",
+    gallery: "Galleria fotografica",
     related: "Vuoi aiutarci in questo progetto?",
   },
   news: {

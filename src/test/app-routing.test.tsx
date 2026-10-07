@@ -5,6 +5,13 @@ import { describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { it as italian } from "@/i18n/it";
 import { uk } from "@/i18n/uk";
+import {
+  CULTURE_GALLERY,
+  FIELD_SUPPORT_GALLERY,
+  HOME_GALLERY,
+  HUMANITARIAN_GALLERY,
+  VEHICLES_GALLERY,
+} from "@/lib/gallery";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -27,5 +34,28 @@ describe("Verified association impact", () => {
   it("shows more than 100 public events and meetings in both languages", () => {
     expect(italian.home.impact[1]?.value).toBe("100+");
     expect(uk.home.impact[1]?.value).toBe("100+");
+  });
+});
+
+describe("Photo collections", () => {
+  it("keeps every uploaded photo in its assigned collection", () => {
+    expect(HOME_GALLERY).toHaveLength(5);
+    expect(VEHICLES_GALLERY).toHaveLength(10);
+    expect(HUMANITARIAN_GALLERY).toHaveLength(4);
+    expect(CULTURE_GALLERY).toHaveLength(7);
+    expect(FIELD_SUPPORT_GALLERY).toHaveLength(7);
+  });
+
+  it("provides Italian and Ukrainian descriptions for every photo", () => {
+    const photos = [
+      ...HOME_GALLERY,
+      ...VEHICLES_GALLERY,
+      ...HUMANITARIAN_GALLERY,
+      ...CULTURE_GALLERY,
+      ...FIELD_SUPPORT_GALLERY,
+    ];
+
+    expect(photos).toHaveLength(33);
+    expect(photos.every((photo) => photo.alt.it.length > 0 && photo.alt.uk.length > 0)).toBe(true);
   });
 });
