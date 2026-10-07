@@ -13,6 +13,9 @@ import { CopyField } from "@/components/site/CopyField";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
 import hero from "@/assets/hero.jpg";
 import community from "@/assets/community.jpg";
+import communityAction from "@/assets/community-action.webp.asset.json";
+import humanitarianWarehouse from "@/assets/humanitarian-warehouse.webp.asset.json";
+import ambulanceDelivery from "@/assets/ambulance-delivery.webp.asset.json";
 
 export const Route = createFileRoute("/$lang/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(postsQuery),
@@ -101,18 +104,33 @@ function Home() {
         </div>
       </section>
 
-      {/* Impact (placeholders — no invented numbers) */}
+      {/* Verified impact */}
       <section className="container-site py-20">
         <h2 className="text-center text-2xl font-semibold md:text-3xl">{t.home.impactTitle}</h2>
-        <dl className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
-          {t.home.impact.map((label) => (
-            <div key={label} className="rounded-2xl border bg-card p-6 text-center">
-              <dt className="text-sm text-muted-foreground">{label}</dt>
-              <dd className="mt-2 font-display text-3xl font-semibold text-primary"><span className="placeholder-mark">[ — ]</span></dd>
+        <dl className="mx-auto mt-10 grid max-w-3xl gap-6 sm:grid-cols-2">
+          {t.home.impact.map((item) => (
+            <div key={item.label} className="rounded-2xl border bg-card p-7 text-center">
+              <dd className="font-display text-4xl font-semibold text-primary">{item.value}</dd>
+              <dt className="mt-3 text-sm text-muted-foreground">{item.label}</dt>
             </div>
           ))}
         </dl>
         <p className="mt-4 text-center text-xs text-muted-foreground">{t.home.impactNote}</p>
+      </section>
+
+      <section className="container-site pb-20">
+        <h2 className="text-2xl font-semibold md:text-3xl">{t.home.galleryTitle}</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr]">
+          {[communityAction.url, humanitarianWarehouse.url, ambulanceDelivery.url].map((src, index) => (
+            <img
+              key={src}
+              src={src}
+              alt={t.home.galleryAlts[index]}
+              loading="lazy"
+              className="aspect-[4/3] size-full rounded-2xl object-cover shadow-card"
+            />
+          ))}
+        </div>
       </section>
 
       {/* Donate CTA + 5x1000 */}

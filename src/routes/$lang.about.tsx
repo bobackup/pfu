@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, FileDown, User } from "lucide-react";
+import { Check, FileDown } from "lucide-react";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { ORG } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
+import institutionalMeeting from "@/assets/institutional-meeting.webp.asset.json";
 
 export const Route = createFileRoute("/$lang/about")({
   head: ({ params, matches }) => {
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/$lang/about")({
 });
 
 function About() {
-  const { t } = useT();
+  const { lang, t } = useT();
   return (
     <>
       <PageHero title={t.about.title} intro={t.about.intro} />
@@ -32,16 +33,18 @@ function About() {
           </ul>
         </div>
       </section>
-      <section className="container-site py-8">
-        <h2 className="text-2xl font-semibold">{t.about.teamTitle}</h2>
-        <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
-          {t.about.roles.map((role) => (
-            <div key={role} className="rounded-2xl border bg-card p-5 text-center">
-              <div className="mx-auto grid size-20 place-items-center rounded-full bg-muted text-muted-foreground"><User className="size-8" /></div>
-              <p className="mt-4 font-semibold"><span className="placeholder-mark">[Nome Cognome]</span></p>
-              <p className="text-sm text-muted-foreground">{role}</p>
-            </div>
-          ))}
+      <section className="bg-secondary py-16">
+        <div className="container-site grid items-center gap-10 md:grid-cols-2">
+          <img
+            src={institutionalMeeting.url}
+            alt={lang === "uk" ? "Зустріч People for Ukraine з представниками українських та італійських інституцій" : "Incontro di People for Ukraine con rappresentanti delle istituzioni ucraine e italiane"}
+            loading="lazy"
+            className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card"
+          />
+          <div>
+            <h2 className="text-2xl font-semibold">{t.about.developmentTitle}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{t.about.development}</p>
+          </div>
         </div>
       </section>
       <section className="container-site py-16">

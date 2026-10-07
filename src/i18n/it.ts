@@ -48,12 +48,21 @@ export const it = {
     ctaInvolved: "Diventa volontario",
     aboutTitle: "Chi siamo",
     aboutText:
-      "People for Ukraine è nata a Rimini dopo l'invasione su larga scala dell'Ucraina. Siamo cittadini ucraini e italiani che hanno scelto di agire: raccogliamo aiuti, sosteniamo chi è arrivato in Italia e costruiamo ponti tra due comunità.",
+      "People for Ukraine è stata registrata nel 2022, dopo anni di attività iniziata nel 2014. Aiutiamo gli ucraini in patria e all'estero, portiamo sostegno concreto e mobilitiamo i partner europei.",
     aboutLink: "La nostra storia",
     activitiesTitle: "Cosa facciamo",
     impactTitle: "Il nostro impatto",
-    impactNote: "Dati in aggiornamento — verranno pubblicati solo numeri verificati.",
-    impact: ["Carichi di aiuti inviati", "Famiglie supportate", "Volontari attivi", "Eventi organizzati"],
+    impactNote: "Dati verificati forniti dall'associazione.",
+    impact: [
+      { value: "600+", label: "Tonnellate di aiuti umanitari" },
+      { value: "100+", label: "Eventi, manifestazioni e incontri" },
+    ],
+    galleryTitle: "L'impegno in immagini",
+    galleryAlts: [
+      "Volontari di People for Ukraine a una manifestazione per l'Ucraina",
+      "Aiuti umanitari raccolti e preparati per la spedizione",
+      "Consegna di un'ambulanza da parte dei volontari",
+    ],
     donateTitle: "Ogni contributo conta",
     donateText:
       "Con un bonifico, una donazione online o il tuo 5×1000 puoi sostenere concretamente le persone colpite dalla guerra.",
@@ -71,17 +80,20 @@ export const it = {
   about: {
     title: "Chi siamo",
     intro:
-      "Un'associazione di volontari ucraini e italiani con sede a Rimini, nata per rispondere a un'emergenza e cresciuta in un impegno di lungo periodo.",
+      "Un'associazione ucraino-italiana che trasforma la solidarietà in aiuto concreto e costruisce collaborazioni durature per l'Ucraina.",
     historyTitle: "La nostra storia",
     history:
-      "[Testo segnaposto] Nel 2022, nei giorni successivi all'invasione su larga scala, un gruppo di ucraini residenti in Romagna e di amici italiani ha iniziato a raccogliere beni di prima necessità. Da quell'esperienza è nata l'associazione. Sostituite questo paragrafo con la vostra storia reale.",
+      "People for Ukraine è stata ufficialmente registrata nel 2022, ma i fondatori e i partecipanti avevano iniziato la loro attività già nel 2014. Da allora aiutiamo attivamente gli ucraini sia in Ucraina sia all'estero, rispondiamo ai bisogni umanitari e sosteniamo il Paese con azioni concrete. Allo stesso tempo incoraggiamo i partner europei a rafforzare il loro sostegno all'Ucraina.",
     missionTitle: "Missione",
     mission: [
-      "Portare aiuti umanitari a chi è rimasto in Ucraina.",
-      "Accompagnare le famiglie ucraine arrivate in Italia.",
-      "Far conoscere la cultura e la storia ucraina.",
-      "Promuovere solidarietà e dialogo tra le comunità.",
+      "Portare aiuti umanitari agli ucraini in patria e all'estero.",
+      "Sostenere con azioni concrete chi difende e ricostruisce l'Ucraina.",
+      "Coinvolgere partner europei e rafforzare la cooperazione tra associazioni.",
+      "Promuovere i diritti, la cultura ucraina e il dialogo tra le comunità.",
     ],
+    developmentTitle: "Sviluppo e partenariati",
+    development:
+      "Nel 2024 il team di People for Ukraine, insieme a realtà affini di tutta Italia, ha avviato un ampio progetto per unire le associazioni e aumentare la capacità di aiutare l'Ucraina e gli ucraini. Nel 2025 People for Ukraine è diventata cofondatrice di NAU — Network Associazioni per Ucraina.",
     teamTitle: "Il direttivo",
     legalTitle: "Informazioni legali",
     statuto: "Scarica lo Statuto (PDF)",
