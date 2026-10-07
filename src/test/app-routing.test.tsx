@@ -20,12 +20,12 @@ describe("App routing", () => {
 
 describe("Verified association impact", () => {
   it("shows more than 600 tonnes of humanitarian aid in both languages", () => {
-    expect(italian.home.impact[0].value).toBe("600+");
-    expect(uk.home.impact[0].value).toBe("600+");
+    expect(italian.home.impact[0]?.value).toBe("600+");
+    expect(uk.home.impact[0]?.value).toBe("600+");
   });
 
   it("shows more than 100 public events and meetings in both languages", () => {
-    expect(italian.home.impact[1].value).toBe("100+");
-    expect(uk.home.impact[1].value).toBe("100+");
+    expect(italian.home.impact[1]?.value).toBe("100+");
+    expect(uk.home.impact[1]?.value).toBe("100+");
   });
 });
