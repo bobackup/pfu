@@ -25,6 +25,14 @@ import culture04 from "@/assets/gallery/culture-04.webp.asset.json";
 import culture05 from "@/assets/gallery/culture-05.webp.asset.json";
 import culture06 from "@/assets/gallery/culture-06.webp.asset.json";
 import culture07 from "@/assets/gallery/culture-07.webp.asset.json";
+import culture08 from "@/assets/gallery/culture-08.webp.asset.json";
+import culture09 from "@/assets/gallery/culture-09.webp.asset.json";
+import culture10 from "@/assets/gallery/culture-10.webp.asset.json";
+import culture11 from "@/assets/gallery/culture-11.webp.asset.json";
+import culture12 from "@/assets/gallery/culture-12.webp.asset.json";
+import culture13 from "@/assets/gallery/culture-13.webp.asset.json";
+import culture14 from "@/assets/gallery/culture-14.webp.asset.json";
+import culture15 from "@/assets/gallery/culture-15.webp.asset.json";
 import field01 from "@/assets/gallery/field-support-01.webp.asset.json";
 import field02 from "@/assets/gallery/field-support-02.webp.asset.json";
 import field03 from "@/assets/gallery/field-support-03.webp.asset.json";
@@ -32,6 +40,8 @@ import field04 from "@/assets/gallery/field-support-04.webp.asset.json";
 import field05 from "@/assets/gallery/field-support-05.webp.asset.json";
 import field06 from "@/assets/gallery/field-support-06.webp.asset.json";
 import field07 from "@/assets/gallery/field-support-07.webp.asset.json";
+import field08 from "@/assets/gallery/field-support-08.webp.asset.json";
+import vehicles11 from "@/assets/gallery/vehicles-11.webp.asset.json";
 
 export interface GalleryPhoto {
   src: string;
@@ -62,6 +72,7 @@ export const VEHICLES_GALLERY: GalleryPhoto[] = [
   photo(vehicles08, "Attrezzature mediche e aiuti all'interno di un'ambulanza", "Медичне обладнання й допомога всередині швидкої"),
   photo(vehicles09, "Consegna di materiali accanto alle ambulanze", "Передача матеріалів поруч із машинами швидкої допомоги"),
   photo(vehicles10, "Vano di un mezzo di soccorso carico di aiuti", "Відсік рятувального автомобіля, завантажений допомогою"),
+  photo(vehicles11, "Ambulanza ucraina durante una tappa in Italia", "Українська машина швидкої допомоги під час зупинки в Італії"),
 ];
 
 export const HUMANITARIAN_GALLERY: GalleryPhoto[] = [
@@ -79,6 +90,14 @@ export const CULTURE_GALLERY: GalleryPhoto[] = [
   photo(culture05, "Bambina durante un'attività dedicata alle famiglie", "Дівчинка під час заходу для родин"),
   photo(culture06, "Volontari e famiglie durante un incontro di sostegno", "Волонтери й родини під час зустрічі підтримки"),
   photo(culture07, "Manifestazione serale con bandiere ucraine", "Вечірня акція з українськими прапорами"),
+  photo(culture08, "Partecipanti con un cartello per la vittoria e la pace in Ucraina", "Учасники з плакатом за перемогу та мир в Україні"),
+  photo(culture09, "Grande bandiera ucraina portata durante una manifestazione pubblica", "Великий український прапор під час громадської акції"),
+  photo(culture10, "Intervento pubblico accanto alle bandiere ucraina ed europea", "Публічний виступ поруч із прапорами України та Європейського Союзу"),
+  photo(culture11, "Comunità riunita con una grande bandiera ucraina", "Громада з великим українським прапором під час акції"),
+  photo(culture12, "Partecipanti a una manifestazione per l'Ucraina nel centro cittadino", "Учасники акції на підтримку України в центрі міста"),
+  photo(culture13, "Manifestazione cittadina con bandiere ucraine e una grande bandiera condivisa", "Міська акція з українськими прапорами та великим спільним прапором"),
+  photo(culture14, "Incontro internazionale a sostegno dell'Ucraina e dell'Europa", "Міжнародна зустріч на підтримку України та Європи"),
+  photo(culture15, "Delegazione di People for Ukraine durante un incontro associativo", "Делегація People for Ukraine під час зустрічі асоціацій"),
 ];
 
 export const FIELD_SUPPORT_GALLERY: GalleryPhoto[] = [
@@ -89,4 +108,5 @@ export const FIELD_SUPPORT_GALLERY: GalleryPhoto[] = [
   photo(field05, "Consegna diretta di equipaggiamento e beni essenziali", "Безпосередня передача спорядження й необхідних речей"),
   photo(field06, "Militari con materiali ricevuti sul campo", "Військові з матеріалами, отриманими на місцях"),
   photo(field07, "Aiuti consegnati a persone in una zona colpita dalla guerra", "Допомога, передана людям у постраждалому від війни районі"),
+  photo(field08, "Cura degli animali sostenuti dalla rete di volontari", "Догляд за тваринами, яким допомагає волонтерська мережа"),
 ];
