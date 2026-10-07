@@ -40,10 +40,10 @@ describe("Verified association impact", () => {
 describe("Photo collections", () => {
   it("keeps every uploaded photo in its assigned collection", () => {
     expect(HOME_GALLERY).toHaveLength(5);
-    expect(VEHICLES_GALLERY).toHaveLength(10);
+    expect(VEHICLES_GALLERY).toHaveLength(11);
     expect(HUMANITARIAN_GALLERY).toHaveLength(4);
-    expect(CULTURE_GALLERY).toHaveLength(7);
-    expect(FIELD_SUPPORT_GALLERY).toHaveLength(7);
+    expect(CULTURE_GALLERY).toHaveLength(15);
+    expect(FIELD_SUPPORT_GALLERY).toHaveLength(8);
   });
 
   it("provides Italian and Ukrainian descriptions for every photo", () => {
@@ -55,7 +55,7 @@ describe("Photo collections", () => {
       ...FIELD_SUPPORT_GALLERY,
     ];
 
-    expect(photos).toHaveLength(33);
+    expect(photos).toHaveLength(43);
     expect(photos.every((photo) => photo.alt.it.length > 0 && photo.alt.uk.length > 0)).toBe(true);
   });
 });
