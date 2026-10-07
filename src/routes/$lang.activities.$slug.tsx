@@ -24,12 +24,14 @@ export const Route = createFileRoute("/$lang/activities/$slug")({
 function ActivityDetail() {
   const { slug } = Route.useLoaderData();
   const { lang, t } = useT();
-  const a = ACTIVITIES.find((x) => x.slug === slug)!;
+  const a = ACTIVITIES.find((x) => x.slug === slug);
+  if (!a) return null;
   return (
     <>
       <PageHero title={a.title[lang]} intro={a.summary[lang]} />
       <article className="container-site max-w-3xl py-14">
         <Link to="/$lang/activities" params={{ lang }} className="inline-flex items-center gap-1 text-sm font-semibold text-primary"><ArrowLeft className="size-4" /> {t.nav.activities}</Link>
+        <img src={a.image} alt={a.imageAlt[lang]} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover shadow-card" />
         <div className="prose-site mt-8 text-lg text-foreground/85">
           {a.body[lang].map((p) => <p key={p}>{p}</p>)}
         </div>
