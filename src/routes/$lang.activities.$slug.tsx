@@ -38,7 +38,7 @@ function ActivityDetail() {
         <section className="mt-12" aria-labelledby="activity-gallery-title">
           <h2 id="activity-gallery-title" className="text-2xl font-semibold">{t.activities.gallery}</h2>
           <div className="mt-6 columns-1 gap-4 sm:columns-2 lg:columns-3">
-            {a.gallery.map((photo) => (
+            {a.gallery.filter((photo) => photo.src !== a.image).map((photo) => (
               <img
                 key={photo.src}
                 src={photo.src}
