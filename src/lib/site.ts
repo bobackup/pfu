@@ -1,5 +1,5 @@
 // Organisation details. Values in [brackets] are placeholders to replace with real data.
-import statutoPdf from "@/assets/statuto.pdf.asset.json";
+import statutoPdf from "@/assets/statuto-public.pdf.asset.json";
 
 export const ORG = {
   name: "People for Ukraine",
