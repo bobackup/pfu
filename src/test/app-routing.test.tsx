@@ -3,7 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
-import { it } from "@/i18n/it";
+import { it as italian } from "@/i18n/it";
 import { uk } from "@/i18n/uk";
 
 // Match routes without running loaders or rendering: loaders may need a server or
@@ -20,12 +20,12 @@ describe("App routing", () => {
 
 describe("Verified association impact", () => {
   it("shows more than 600 tonnes of humanitarian aid in both languages", () => {
-    expect(it.home.impact[0].value).toBe("600+");
+    expect(italian.home.impact[0].value).toBe("600+");
     expect(uk.home.impact[0].value).toBe("600+");
   });
 
   it("shows more than 100 public events and meetings in both languages", () => {
-    expect(it.home.impact[1].value).toBe("100+");
+    expect(italian.home.impact[1].value).toBe("100+");
     expect(uk.home.impact[1].value).toBe("100+");
   });
 });
