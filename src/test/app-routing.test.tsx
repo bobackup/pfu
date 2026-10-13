@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { it as italian } from "@/i18n/it";
 import { uk } from "@/i18n/uk";
+import { ACTIVITIES } from "@/lib/activities";
+import { ORG } from "@/lib/site";
 import {
   CULTURE_GALLERY,
   FIELD_SUPPORT_GALLERY,
@@ -38,6 +40,15 @@ describe("Verified association impact", () => {
 });
 
 describe("Photo collections", () => {
+  it("preserves all 38 activity photos exactly once across the new directions", () => {
+    const sources = ACTIVITIES.flatMap((activity) => activity.gallery.map((photo) => photo.src));
+    expect(sources).toHaveLength(38);
+    expect(new Set(sources).size).toBe(38);
+    expect(new Set(sources)).toEqual(new Set([
+      ...VEHICLES_GALLERY, ...HUMANITARIAN_GALLERY, ...CULTURE_GALLERY, ...FIELD_SUPPORT_GALLERY,
+    ].map((photo) => photo.src)));
+  });
+
   it("keeps every uploaded photo in its assigned collection", () => {
     expect(HOME_GALLERY).toHaveLength(5);
     expect(VEHICLES_GALLERY).toHaveLength(11);
@@ -57,5 +68,11 @@ describe("Photo collections", () => {
 
     expect(photos).toHaveLength(43);
     expect(photos.every((photo) => photo.alt.it.length > 0 && photo.alt.uk.length > 0)).toBe(true);
+  });
+});
+
+describe("News destination", () => {
+  it("uses the association Facebook page specified by the user", () => {
+    expect(ORG.socials.facebook).toBe("https://www.facebook.com/peopleforukraine");
   });
 });
