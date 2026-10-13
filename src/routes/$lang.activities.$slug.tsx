@@ -16,7 +16,7 @@ export const Route = createFileRoute("/$lang/activities/$slug")({
     const a = ACTIVITIES.find((x) => x.slug === params.slug);
     const l = isLocale(params.lang) ? params.lang : "it";
     if (!a) return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
-    return pageHead({ lang: params.lang, matches }, `/activities/${a.slug}`, a.title[l], a.summary[l]);
+    return pageHead({ lang: params.lang, matches }, `/activities/${a.slug}`, a.title[l], a.summary[l], a.image);
   },
   component: ActivityDetail,
 });
@@ -33,7 +33,12 @@ function ActivityDetail() {
         <Link to="/$lang/activities" params={{ lang }} className="inline-flex items-center gap-1 text-sm font-semibold text-primary"><ArrowLeft className="size-4" /> {t.nav.activities}</Link>
         <img src={a.image} alt={a.imageAlt[lang]} className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover shadow-card" />
         <div className="prose-site mt-8 text-lg text-foreground/85">
-          {a.body[lang].map((p) => <p key={p}>{p}</p>)}
+          {a.sections.map((section) => (
+            <section key={section.title.it} className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground">{section.title[lang]}</h2>
+              <p className="mt-3">{section.text[lang]}</p>
+            </section>
+          ))}
         </div>
         <section className="mt-12" aria-labelledby="activity-gallery-title">
           <h2 id="activity-gallery-title" className="text-2xl font-semibold">{t.activities.gallery}</h2>
