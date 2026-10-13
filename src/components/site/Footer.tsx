@@ -28,7 +28,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-primary-foreground/80">
             <li><Link to="/$lang/about" params={{ lang }}>{t.nav.about}</Link></li>
             <li><Link to="/$lang/activities" params={{ lang }}>{t.nav.activities}</Link></li>
-            <li><a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">{t.nav.news}</a></li>
+            <li><Link to="/$lang/news" params={{ lang }}>{t.nav.news}</Link></li>
             <li><Link to="/$lang/get-involved" params={{ lang }}>{t.nav.involved}</Link></li>
             <li><Link to="/$lang/donate" params={{ lang }}>{t.nav.donate}</Link></li>
             <li><Link to="/$lang/contact" params={{ lang }}>{t.nav.contact}</Link></li>

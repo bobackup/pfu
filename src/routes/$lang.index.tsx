@@ -64,9 +64,9 @@ function Home() {
               </span>
               {nextEvent.location && <span className="inline-flex items-center gap-1 text-sm text-muted-foreground"><MapPin className="size-4" /> {nextEvent.location}</span>}
             </div>
-            <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+            <Link to="/$lang/news" params={{ lang }} className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
               {t.common.readMore} <ArrowRight className="size-4" />
-            </a>
+            </Link>
           </div>
         </section>
       )}
@@ -150,14 +150,14 @@ function Home() {
       {/* Latest */}
       <section className="container-site py-20 md:py-24">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-3xl font-semibold md:text-4xl"><a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">{t.home.latestTitle}</a></h2>
-          <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-1 font-semibold text-primary sm:inline-flex">
+          <h2 className="text-3xl font-semibold md:text-4xl"><Link to="/$lang/news" params={{ lang }}>{t.home.latestTitle}</Link></h2>
+          <Link to="/$lang/news" params={{ lang }} className="hidden items-center gap-1 font-semibold text-primary sm:inline-flex">
             {t.common.allNews} <ArrowRight className="size-4" />
-          </a>
+          </Link>
         </div>
         <p className="mt-8 text-muted-foreground">{t.news.intro}</p>
         <Button asChild variant="outline" className="mt-6">
-          <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">Facebook <ArrowRight /></a>
+          <Link to="/$lang/news" params={{ lang }}>{t.common.allNews} <ArrowRight /></Link>
         </Button>
       </section>
 
