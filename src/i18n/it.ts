@@ -102,7 +102,7 @@ export const it = {
   },
   news: {
     title: "News ed eventi",
-    intro: "Aggiornamenti, appuntamenti, rendiconti e rassegna stampa.",
+    intro: "Notizie, appuntamenti e aggiornamenti di People for Ukraine sulla nostra pagina Facebook.",
     all: "Tutti",
     categories: { news: "News", event: "Eventi", report: "Rendiconti", press: "Stampa" },
     upcoming: "In programma",
