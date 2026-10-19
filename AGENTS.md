@@ -18,4 +18,3 @@
 - Organisation details (IBAN, codice fiscale, address) live in one file, `src/lib/site.ts`.
 - Absolute SEO URLs (canonical, hreflang, og:url/og:image) use the origin loaded by the `/$lang` layout via `getRequestOrigin` (SITE_URL env overrides) and passed through `pageHead`; keeps tags correct on any domain.
 - Curated documentary photos live as CDN asset pointers and are referenced from static bilingual content; this keeps source history small while preserving real association imagery.
-- Activity descriptions use typed bilingual subsections and curated photo selections in the activity content module; this keeps detail pages and overview cards consistent without changing their URLs.

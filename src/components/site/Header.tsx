@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LOCALES, LOCALE_LABELS, useT } from "@/i18n";
 import { Logo } from "./Logo";
-import { ORG } from "@/lib/site";
 
 export function Header() {
   const { lang, t } = useT();
@@ -15,7 +14,7 @@ export function Header() {
   const links = [
     { to: "/$lang/about", label: t.nav.about },
     { to: "/$lang/activities", label: t.nav.activities },
-    { to: "/$lang/news", label: t.nav.news, external: true },
+    { to: "/$lang/news", label: t.nav.news },
     { to: "/$lang/get-involved", label: t.nav.involved },
     { to: "/$lang/contact", label: t.nav.contact },
   ] as const;
@@ -26,9 +25,7 @@ export function Header() {
       <div className="container-site flex h-16 items-center justify-between gap-4">
         <Logo lang={lang} />
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-          {links.map((l) => ("external" in l ? (
-            <a key={l.to} href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary">{l.label}</a>
-          ) : (
+          {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
@@ -38,7 +35,7 @@ export function Header() {
             >
               {l.label}
             </Link>
-          )))}
+          ))}
         </nav>
         <div className="flex items-center gap-2">
           <div className="flex rounded-full border p-0.5 text-xs font-semibold" role="group" aria-label={t.nav.language}>
@@ -69,13 +66,11 @@ export function Header() {
       {open && (
         <nav className="border-t bg-background lg:hidden" aria-label="Mobile">
           <div className="container-site flex flex-col py-3">
-            {links.map((l) => ("external" in l ? (
-              <a key={l.to} href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="py-3 text-base font-medium">{l.label}</a>
-            ) : (
+            {links.map((l) => (
               <Link key={l.to} to={l.to} params={{ lang }} onClick={() => setOpen(false)} className="py-3 text-base font-medium">
                 {l.label}
               </Link>
-            )))}
+            ))}
             <Button asChild variant="donate" className="mt-2 rounded-full">
               <Link to="/$lang/donate" params={{ lang }} onClick={() => setOpen(false)}>
                 <Heart /> {t.nav.donate}

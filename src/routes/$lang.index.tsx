@@ -9,6 +9,7 @@ import { formatDate, isPastEvent } from "@/lib/posts";
 import { ACTIVITIES } from "@/lib/activities";
 import { ORG, PARTNERS } from "@/lib/site";
 import { HOME_GALLERY } from "@/lib/gallery";
+import { PostCard } from "@/components/site/PostCard";
 import { CopyField } from "@/components/site/CopyField";
 import { SubmissionForm } from "@/components/site/SubmissionForm";
 import hero from "@/assets/hero.jpg";
@@ -26,9 +27,10 @@ export const Route = createFileRoute("/$lang/")({
 function Home() {
   const { lang, t } = useT();
   const { data: posts } = useSuspenseQuery(postsQuery);
+  const latest = posts.slice(0, 3);
   const nextEvent = posts
     .filter((p) => p.category === "event" && p.event_date && !isPastEvent(p))
-    .sort((a, b) => ((a.event_date ?? "").localeCompare(b.event_date ?? "")))[0];
+    .sort((a, b) => (a.event_date! < b.event_date! ? -1 : 1))[0];
 
   return (
     <>
@@ -60,13 +62,13 @@ function Home() {
               <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent-foreground">{t.home.nextEvent}</span>
               <span className="font-semibold">{pickLocalized(nextEvent, "title", lang)}</span>
               <span className="inline-flex items-center gap-1 text-sm text-muted-foreground">
-                <CalendarDays className="size-4" /> {formatDate(nextEvent.event_date ?? "", lang)} {nextEvent.event_time && `· ${nextEvent.event_time}`}
+                <CalendarDays className="size-4" /> {formatDate(nextEvent.event_date!, lang)} {nextEvent.event_time && `· ${nextEvent.event_time}`}
               </span>
               {nextEvent.location && <span className="inline-flex items-center gap-1 text-sm text-muted-foreground"><MapPin className="size-4" /> {nextEvent.location}</span>}
             </div>
-            <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+            <Link to="/$lang/news/$slug" params={{ lang, slug: nextEvent.slug }} className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
               {t.common.readMore} <ArrowRight className="size-4" />
-            </a>
+            </Link>
           </div>
         </section>
       )}
@@ -150,15 +152,16 @@ function Home() {
       {/* Latest */}
       <section className="container-site py-20 md:py-24">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-3xl font-semibold md:text-4xl"><a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">{t.home.latestTitle}</a></h2>
-          <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-1 font-semibold text-primary sm:inline-flex">
+          <h2 className="text-3xl font-semibold md:text-4xl">{t.home.latestTitle}</h2>
+          <Link to="/$lang/news" params={{ lang }} className="hidden items-center gap-1 font-semibold text-primary sm:inline-flex">
             {t.common.allNews} <ArrowRight className="size-4" />
-          </a>
+          </Link>
         </div>
-        <p className="mt-8 text-muted-foreground">{t.news.intro}</p>
-        <Button asChild variant="outline" className="mt-6">
-          <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">Facebook <ArrowRight /></a>
-        </Button>
+        {latest.length ? (
+          <div className="mt-10 grid gap-6 md:grid-cols-3">{latest.map((p) => <PostCard key={p.id} post={p} />)}</div>
+        ) : (
+          <p className="mt-8 text-muted-foreground">{t.home.noPosts}</p>
+        )}
       </section>
 
       {/* Partners */}

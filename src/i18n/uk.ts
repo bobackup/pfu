@@ -104,7 +104,7 @@ export const uk: Dict = {
   },
   news: {
     title: "Новини та події",
-    intro: "Новини, анонси подій та оновлення People for Ukraine на нашій сторінці Facebook.",
+    intro: "Оновлення, анонси, звіти та публікації в пресі.",
     all: "Усі",
     categories: { news: "Новини", event: "Події", report: "Звіти", press: "Преса" },
     upcoming: "Заплановані",
