@@ -15,7 +15,7 @@ export function Header() {
   const links = [
     { to: "/$lang/about", label: t.nav.about },
     { to: "/$lang/activities", label: t.nav.activities },
-    { to: "/$lang/news", label: t.nav.news },
+    { to: "/$lang/news", label: t.nav.news, external: true },
     { to: "/$lang/get-involved", label: t.nav.involved },
     { to: "/$lang/contact", label: t.nav.contact },
   ] as const;

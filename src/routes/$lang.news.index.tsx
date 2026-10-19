@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowUpRight, Facebook } from "lucide-react";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { FacebookFeed } from "@/components/site/FacebookFeed";
+import { ORG } from "@/lib/site";
+import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/PageHero";
 
 // Keep existing public URLs usable while news is published on Facebook.
@@ -19,7 +21,11 @@ function News() {
     <>
       <PageHero title={t.news.title} intro={t.news.intro} />
       <section className="container-site py-12">
-        <FacebookFeed />
+        <Button asChild size="lg">
+          <a href={ORG.socials.facebook} target="_blank" rel="noopener noreferrer">
+            <Facebook /> Facebook <ArrowUpRight />
+          </a>
+        </Button>
       </section>
     </>
   );

@@ -103,9 +103,6 @@ export const uk: Dict = {
     related: "Хочете допомогти в цьому проєкті?",
   },
   news: {
-    fbShow: "Показати новини з Facebook",
-    fbNotice: "Після натискання завантажиться стрічка з Facebook — Facebook може встановити власні cookie.",
-    fbOpen: "Відкрити на Facebook",
     title: "Новини та події",
     intro: "Новини, анонси подій та оновлення People for Ukraine на нашій сторінці Facebook.",
     all: "Усі",

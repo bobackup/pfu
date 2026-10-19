@@ -101,9 +101,6 @@ export const it = {
     related: "Vuoi aiutarci in questo progetto?",
   },
   news: {
-    fbShow: "Mostra le news da Facebook",
-    fbNotice: "Cliccando verrà caricato il feed di Facebook, che potrebbe impostare i propri cookie.",
-    fbOpen: "Apri su Facebook",
     title: "News ed eventi",
     intro: "Notizie, appuntamenti e aggiornamenti di People for Ukraine sulla nostra pagina Facebook.",
     all: "Tutti",
