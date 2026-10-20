@@ -15,7 +15,6 @@ export const ORG = {
   donationCausal: "Donazione di beneficenza",
   paymentUrl: "https://paypal.me/PeopleforUkraine",
   email: "info@people4ukraine.org",
-  phone: "[+39 000 000 0000]",
   mapEmbed: "https://www.google.com/maps?q=Via%20Dei%20Mille%2016%2C%2047842%20San%20Giovanni%20in%20Marignano%20(RN)%2C%20Italia&output=embed",
   mapLink: "https://maps.google.com/?q=Via+Dei+Mille+16,+47842+San+Giovanni+in+Marignano+(RN),+Italia",
   socials: {

@@ -73,7 +73,6 @@ function buildNgoJsonLd() {
   if (isReal(ORG.address)) address["streetAddress"] = ORG.address;
   ld["address"] = address;
   if (isReal(ORG.email)) ld["email"] = ORG.email;
-  if (isReal(ORG.phone)) ld["telephone"] = ORG.phone;
   if (isReal(ORG.codiceFiscale)) ld["taxID"] = ORG.codiceFiscale;
   const sameAs = realSocials();
   if (sameAs.length) ld["sameAs"] = sameAs;
