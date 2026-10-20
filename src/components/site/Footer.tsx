@@ -41,7 +41,7 @@ export function Footer() {
             <p>{ORG.legalForm}</p>
             <p>{ORG.address}</p>
             <p>C.F. {ORG.codiceFiscale}</p>
-            <p>{ORG.email} · {ORG.phone}</p>
+            <p>{ORG.email}</p>
           </address>
         </div>
       </div>
