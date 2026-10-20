@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Facebook, Instagram, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Send } from "lucide-react";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { ORG, isRealSocial } from "@/lib/site";
@@ -28,7 +28,6 @@ function Contact() {
         <div className="space-y-6">
           <ul className="space-y-4">
             <li className="flex gap-3"><Mail className="size-5 text-primary" /><a href={`mailto:${ORG.email}`} className="font-semibold">{ORG.email}</a></li>
-            <li className="flex gap-3"><Phone className="size-5 text-primary" /><span className="font-semibold">{ORG.phone}</span></li>
             <li className="flex gap-3"><MapPin className="size-5 text-primary" /><span><span className="block text-xs uppercase text-muted-foreground">{t.contact.address}</span><span className="font-semibold">{ORG.address}</span></span></li>
           </ul>
           <div>
