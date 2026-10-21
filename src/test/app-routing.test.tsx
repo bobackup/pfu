@@ -40,9 +40,9 @@ describe("Verified association impact", () => {
 describe("Photo collections", () => {
   it("keeps every uploaded photo in its assigned collection", () => {
     expect(HOME_GALLERY).toHaveLength(5);
-    expect(VEHICLES_GALLERY).toHaveLength(11);
+    expect(VEHICLES_GALLERY).toHaveLength(10);
     expect(HUMANITARIAN_GALLERY).toHaveLength(4);
-    expect(CULTURE_GALLERY).toHaveLength(15);
+    expect(CULTURE_GALLERY).toHaveLength(16);
     expect(FIELD_SUPPORT_GALLERY).toHaveLength(8);
   });
 

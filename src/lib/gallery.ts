@@ -72,7 +72,6 @@ export const VEHICLES_GALLERY: GalleryPhoto[] = [
   photo(vehicles08, "Attrezzature mediche e aiuti all'interno di un'ambulanza", "Медичне обладнання й допомога всередині швидкої"),
   photo(vehicles09, "Consegna di materiali accanto alle ambulanze", "Передача матеріалів поруч із машинами швидкої допомоги"),
   photo(vehicles10, "Vano di un mezzo di soccorso carico di aiuti", "Відсік рятувального автомобіля, завантажений допомогою"),
-  photo(vehicles11, "Ambulanza ucraina durante una tappa in Italia", "Українська машина швидкої допомоги під час зупинки в Італії"),
 ];
 
 export const HUMANITARIAN_GALLERY: GalleryPhoto[] = [
@@ -98,6 +97,7 @@ export const CULTURE_GALLERY: GalleryPhoto[] = [
   photo(culture13, "Manifestazione cittadina con bandiere ucraine e una grande bandiera condivisa", "Міська акція з українськими прапорами та великим спільним прапором"),
   photo(culture14, "Incontro internazionale a sostegno dell'Ucraina e dell'Europa", "Міжнародна зустріч на підтримку України та Європи"),
   photo(culture15, "Delegazione di People for Ukraine durante un incontro associativo", "Делегація People for Ukraine під час зустрічі асоціацій"),
+  photo(vehicles11, "Ambulanza colpita dalle forze russe, esposta durante un'iniziativa pubblica", "Машина швидкої допомоги, обстріляна російськими військами, показана на публічній акції"),
 ];
 
 export const FIELD_SUPPORT_GALLERY: GalleryPhoto[] = [
