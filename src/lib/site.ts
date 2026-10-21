@@ -44,10 +44,13 @@ export function realSocials(): string[] {
 // the home page "Con il sostegno di" grid when the list is full.
 import omegaLogo from "@/assets/omega-logistica.svg.asset.json";
 import smartLogo from "@/assets/smart-technologies.png.asset.json";
-import vazhlyviLogo from "@/assets/vazhlyvi-dii.jpg.asset.json";
+import aidCorpLogo from "@/assets/aid-corp-ukraine.jpg.asset.json";
 
-export const PARTNERS: { name: string; url: string; logo: string }[] = [
+export const PARTNERS: { name: string; url?: string; logo: string }[] = [
   { name: "Omega Logistica", url: "https://www.omegalogistica.it", logo: omegaLogo.url },
   { name: "Smart Technologies", url: "https://www.smarttechnologies.com.ua/", logo: smartLogo.url },
-  { name: "Важливі Дії", url: "https://vaglividii.org/", logo: vazhlyviLogo.url },
+  { name: "Aid Corp Ukraine charitable foundation", logo: aidCorpLogo.url },
 ];
+
+/** Share of donations per area, same order as dict donate.where. */
+export const DONATION_SHARES = [40, 20, 40] as const;

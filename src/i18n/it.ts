@@ -131,7 +131,6 @@ export const it = {
     fiveText: "Firma nel riquadro «Sostegno degli enti del Terzo Settore» e inserisci il codice fiscale:",
     cf: "Codice fiscale",
     whereTitle: "Dove vanno le tue donazioni",
-    whereNote: "Le percentuali reali verranno pubblicate nel rendiconto annuale.",
     where: [
       ["Aiuti umanitari", "Medicinali, cibo, generatori e beni essenziali per l'Ucraina."],
       ["Accoglienza", "Supporto pratico, linguistico e burocratico alle famiglie in Italia."],

@@ -59,3 +59,11 @@ describe("Photo collections", () => {
     expect(photos.every((photo) => photo.alt.it.length > 0 && photo.alt.uk.length > 0)).toBe(true);
   });
 });
+
+import { DONATION_SHARES, PARTNERS } from "@/lib/site";
+describe("Donations and partners", () => {
+  test("donation shares are 40/20/40", () => { expect([...DONATION_SHARES]).toEqual([40, 20, 40]); });
+  test("exactly three partners, Aid Corp replaces Важливі Дії", () => {
+    expect(PARTNERS.map((p) => p.name)).toEqual(["Omega Logistica", "Smart Technologies", "Aid Corp Ukraine charitable foundation"]);
+  });
+});

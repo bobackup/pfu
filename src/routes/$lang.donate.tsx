@@ -3,7 +3,7 @@ import { CreditCard, Landmark, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getDict, useT } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { ORG } from "@/lib/site";
+import { DONATION_SHARES, ORG } from "@/lib/site";
 import { PageHero } from "@/components/site/PageHero";
 import { CopyField } from "@/components/site/CopyField";
 
@@ -50,15 +50,14 @@ function Donate() {
       <section className="container-site py-8">
         <h2 className="text-3xl font-semibold">{t.donate.whereTitle}</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {t.donate.where.map(([title, desc]) => (
+          {t.donate.where.map(([title, desc], i) => (
             <div key={title} className="rounded-2xl border bg-card p-6">
-              <div className="placeholder-mark mb-3">[ — %]</div>
+              <div className="mb-3 font-display text-3xl font-semibold text-primary">{DONATION_SHARES[i]}%</div>
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
             </div>
           ))}
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">{t.donate.whereNote}</p>
       </section>
       <section className="container-site py-14">
         <div className="rounded-2xl bg-secondary p-8">
