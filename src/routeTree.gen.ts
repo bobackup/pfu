@@ -29,6 +29,7 @@ import { Route as LangNewsSlugRouteImport } from './routes/$lang.news.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminSubmissionsRouteImport } from './routes/_authenticated/admin.submissions'
 import { Route as AuthenticatedAdminPostsIdRouteImport } from './routes/_authenticated/admin.posts.$id'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -131,6 +132,12 @@ const AuthenticatedAdminPostsIdRoute =
     path: '/posts/$id',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/$lang/news/': typeof LangNewsIndexRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/admin/posts/$id': typeof AuthenticatedAdminPostsIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -171,6 +179,7 @@ export interface FileRoutesByTo {
   '/$lang/news': typeof LangNewsIndexRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/admin/posts/$id': typeof AuthenticatedAdminPostsIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -194,6 +203,7 @@ export interface FileRoutesById {
   '/$lang/news/': typeof LangNewsIndexRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/admin/posts/$id': typeof AuthenticatedAdminPostsIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/$lang/news/'
     | '/admin/'
     | '/admin/posts/$id'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -236,6 +247,7 @@ export interface FileRouteTypes {
     | '/$lang/news'
     | '/admin'
     | '/admin/posts/$id'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -258,6 +270,7 @@ export interface FileRouteTypes {
     | '/$lang/news/'
     | '/_authenticated/admin/'
     | '/_authenticated/admin/posts/$id'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -266,6 +279,7 @@ export interface RootRouteChildren {
   LangRoute: typeof LangRouteWithChildren
   AuthRoute: typeof AuthRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -410,6 +424,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminPostsIdRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -475,6 +496,7 @@ const rootRouteChildren: RootRouteChildren = {
   LangRoute: LangRouteWithChildren,
   AuthRoute: AuthRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

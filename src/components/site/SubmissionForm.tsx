@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitForm } from "@/lib/submissions.functions";
 import { useT } from "@/i18n";
 
 type Kind = "contact" | "volunteer" | "member" | "partner" | "newsletter";
@@ -19,8 +20,9 @@ interface Props {
 
 export function SubmissionForm({ kind, compact, messageLabel, submitLabel }: Props) {
   const { lang, t } = useT();
+  const submit = useServerFn(submitForm);
   const started = useRef(Date.now());
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "limited">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
@@ -54,16 +56,24 @@ export function SubmissionForm({ kind, compact, messageLabel, submitLabel }: Pro
     }
     setErrors({});
     setStatus("sending");
-    const { error } = await supabase.from("submissions").insert({
-      kind,
-      name: parsed.data.name || null,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      message: parsed.data.message || null,
-      locale: lang,
-      consent: true,
-    });
-    setStatus(error ? "error" : "sent");
+    try {
+      const res = await submit({
+        data: {
+          kind,
+          name: parsed.data.name || undefined,
+          email: parsed.data.email,
+          phone: parsed.data.phone || undefined,
+          message: parsed.data.message || undefined,
+          locale: lang,
+          consent: true,
+          website: "",
+          elapsedMs: Date.now() - started.current,
+        },
+      });
+      setStatus(res.ok ? "sent" : res.error === "rate_limited" ? "limited" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
@@ -120,6 +130,7 @@ export function SubmissionForm({ kind, compact, messageLabel, submitLabel }: Pro
         {err("consent")}
       </div>
       {status === "error" && <p role="alert" className="text-sm text-destructive">{t.common.error}</p>}
+      {status === "limited" && <p role="alert" className="text-sm text-destructive">{t.common.tooMany}</p>}
       {!compact && (
         <Button type="submit" size="lg" disabled={status === "sending"}>
           {status === "sending" ? t.common.sending : submitLabel ?? t.common.send}
