@@ -13,7 +13,7 @@ interface Props {
   receivedAt?: string;
 }
 
-const Row = ({ label, value }: { label: string; value?: string | null }) =>
+const Row = ({ label, value }: { label: string; value?: string | null | undefined }) =>
   value ? (
     <Text style={row}>
       <strong>{label}:</strong> {value}
