@@ -89,6 +89,24 @@ export type Database = {
         }
         Relationships: []
       }
+      submission_rate_limits: {
+        Row: {
+          created_at: string
+          id: string
+          key_hash: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          key_hash: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          key_hash?: string
+        }
+        Relationships: []
+      }
       submissions: {
         Row: {
           consent: boolean

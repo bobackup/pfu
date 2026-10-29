@@ -8,6 +8,13 @@
       "when": 1791112912976,
       "tag": "0000_migration",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793267012667,
+      "tag": "0001_server_side_submissions_rate_limit",
+      "breakpoints": true
     }
   ]
 }
