@@ -28,6 +28,7 @@ export const it = {
     sending: "Invio in corso…",
     sent: "Grazie! Abbiamo ricevuto il tuo messaggio.",
     error: "Si è verificato un errore. Riprova più tardi.",
+    tooMany: "Troppi invii in poco tempo. Riprova tra qualche minuto.",
     required: "Campo obbligatorio",
     name: "Nome e cognome",
     email: "Email",
